@@ -12,7 +12,7 @@ import { LoginSuccessComponent } from './auth/login/login-success/login-success.
     LoginComponent,
     LoginFormComponent,
     LoginSuccessComponent
-  ],
+    ],
   imports: [
     BrowserModule
   ],
