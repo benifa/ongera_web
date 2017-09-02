@@ -10,7 +10,7 @@ const recipeRoutes: Routes = [
     {
         path: 'login', component: LoginComponent,
         children: [{ path: '', component: LoginFormComponent },
-        { path: 'success', component: LoginSuccessComponent, canActivate: [AuthGuard] }]
+        { path: 'login:id', component: LoginSuccessComponent, canActivate: [AuthGuard] }]
     }
 ];
 @NgModule({

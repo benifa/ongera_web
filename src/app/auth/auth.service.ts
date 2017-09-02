@@ -1,10 +1,12 @@
 import { Router } from '@angular/router';
+import { Http, Response } from '@angular/http';
 import { Injectable } from '@angular/core';
 
 @Injectable()
 export class AuthService {
     token: String;
-    constructor(private router: Router) {
+    isLoading: boolean;
+    constructor(private http: Http, private router: Router) {
 
     }
 
@@ -12,6 +14,20 @@ export class AuthService {
     }
 
     loginUser(email: string, password: string) {
+        this.isLoading = true;
+        this.http.post('https://ongera-api.herokuapp.com/bk/login', {
+            'username' : email,
+            'password' : password})
+            .subscribe (
+                (response: Response) => {
+                    this.isLoading = false;
+                    this.token = response['access-token'];
+                },
+                (error: Error) => {
+                    this.isLoading = false;
+                }
+            );
+
     }
 
     logout() {
@@ -24,5 +40,9 @@ export class AuthService {
 
     isAuthenticated() {
         return this.token != null;
+    }
+
+    isAuthenticating() {
+        return this.isLoading;
     }
 }
