@@ -12,13 +12,17 @@ import { LoginSuccessComponent } from './auth/login/login-success/login-success.
 import { LoginRoutingModule } from './auth/login-routing.module';
 import { AuthService } from './auth/auth.service';
 import { AuthGuard } from './auth/auth-guard.service';
+import { MyNewDirectiveDirective } from './my-new-directive.directive';
+import { CurrenciesListDirectiveDirective } from './currencies-list-directive.directive';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     LoginFormComponent,
-    LoginSuccessComponent
+    LoginSuccessComponent,
+    MyNewDirectiveDirective,
+    CurrenciesListDirectiveDirective
     ],
   imports: [
     BrowserModule, FormsModule, HttpModule, AppRoutingModule, LoginRoutingModule
