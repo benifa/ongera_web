@@ -19,7 +19,7 @@ import { AuthGuard } from './auth/auth-guard.service';
     LoginComponent,
     LoginFormComponent,
     LoginSuccessComponent
-  ],
+    ],
   imports: [
     BrowserModule, FormsModule, HttpModule, AppRoutingModule, LoginRoutingModule
   ],
