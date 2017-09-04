@@ -21,6 +21,7 @@ import { PremiumResultsComponent } from './operations/premium/premium-results/pr
 @NgModule({
   declarations: [
     AppComponent,
+<<<<<<< HEAD
     OperationsComponent,
     UserSummaryComponent,
     PremiumComponent,
@@ -28,6 +29,12 @@ import { PremiumResultsComponent } from './operations/premium/premium-results/pr
     PremiumFormComponent,
     PremiumResultsComponent,
   ],
+=======
+    LoginComponent,
+    LoginFormComponent,
+    LoginSuccessComponent
+    ],
+>>>>>>> 80aad53182ce6f5fe371de125761fcab5b4ecf21
   imports: [
     BrowserModule, FormsModule, HttpModule, LoginModule, AppRoutingModule
   ],
