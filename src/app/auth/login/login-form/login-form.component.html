@@ -1,6 +1,5 @@
-<div class="container">
+<div class="container-fluid">
   <div class="row col-sm-offset-2 col-sm-8">
-    <!-- <div *ngIf="!authService.isAuthenticating"> -->
     <img src="../assets/logoongera.png" class="img-responsive center-block"  *ngIf="!authService.isAuthenticating()"alt="Responsive image">
     <div class="jumbotron" *ngIf="!authService.isAuthenticating()" >
       <form (ngSubmit)="onSignup(f)" #f="ngForm">
@@ -18,8 +17,8 @@
         </div>
       </form>
     </div>
-    <template [ngIf]="authService.isAuthenticating()">
+    <ng-template [ngIf]="authService.isAuthenticating()">
       <img src="../assets/loading.png" class="img-responsive center-block" alt="Responsive image">
-    </template>
+    </ng-template>
   </div>
 </div>
