@@ -20,13 +20,7 @@ import { PremiumResultsComponent } from './operations/premium/premium-results/pr
 
 @NgModule({
   declarations: [
-    AppComponent,
-    OperationsComponent,
-    UserSummaryComponent,
-    PremiumComponent,
-    PremiumActionsComponent,
-    PremiumFormComponent,
-    PremiumResultsComponent
+    AppComponent
   ],
 
 
