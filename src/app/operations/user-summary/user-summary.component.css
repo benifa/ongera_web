@@ -1,0 +1,7 @@
+.container-fluid { 
+    border-bottom:1px solid #db692b;
+    height: 20%;
+    width: 100%;
+ 
+    /* overflow: auto; */
+    }

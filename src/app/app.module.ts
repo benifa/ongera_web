@@ -17,6 +17,7 @@ import { PremiumComponent } from './operations/premium/premium.component';
 import { PremiumActionsComponent } from './operations/premium/premium-actions/premium-actions.component';
 import { PremiumFormComponent } from './operations/premium/premium-form/premium-form.component';
 import { PremiumResultsComponent } from './operations/premium/premium-results/premium-results.component';
+import { OperationModule } from './operations/operation.module';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,7 @@ import { PremiumResultsComponent } from './operations/premium/premium-results/pr
 
 
   imports: [
-    BrowserModule, FormsModule, HttpModule, LoginModule, AppRoutingModule
+    BrowserModule, FormsModule, HttpModule, LoginModule, OperationModule, AppRoutingModule
   ],
   providers: [AuthService, AuthGuard],
   bootstrap: [AppComponent]
