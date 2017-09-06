@@ -1,5 +1,6 @@
-.container-fluid{ 
-    border: 3px border-style color #db692b;
+.container-fluid { 
+    border:3px solid #db692b;
     height: 100vh;
-    overflow: auto;
+    width: 100%;
+    padding: 0px;
     }

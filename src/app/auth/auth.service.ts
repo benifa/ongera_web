@@ -1,4 +1,4 @@
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { Http, Response } from '@angular/http';
 import { Injectable } from '@angular/core';
 
@@ -7,7 +7,7 @@ export class AuthService {
     clientId: string;
     token: String;
     isLoading: boolean;
-    constructor(private http: Http, private router: Router) {
+    constructor(private http: Http, private router: Router, private route: ActivatedRoute) {
 
     }
 
@@ -23,6 +23,7 @@ export class AuthService {
                 (response: Response) => {
                     this.isLoading = false;
                     this.token = response['access-token'];
+                    this.router.navigate(['bk/operations']);
                 },
                 (error: Error) => {
                     this.isLoading = false;
