@@ -4,6 +4,7 @@ import { Injectable } from '@angular/core';
 
 @Injectable()
 export class AuthService {
+    clientId: string;
     token: String;
     isLoading: boolean;
     constructor(private http: Http, private router: Router) {
@@ -15,7 +16,7 @@ export class AuthService {
 
     loginUser(email: string, password: string) {
         this.isLoading = true;
-        this.http.post('https://ongera-api.herokuapp.com/bk/login', {
+        this.http.post('https://ongera-api.herokuapp.com/' + 'bk' + '/login', {
             'username' : email,
             'password' : password})
             .subscribe (
@@ -44,5 +45,13 @@ export class AuthService {
 
     isAuthenticating() {
         return this.isLoading;
+    }
+
+    setClientId(id: string) {
+        this.clientId = id;
+    }
+
+    getClientId() {
+        return this.clientId;
     }
 }

@@ -6,16 +6,17 @@ import { LoginComponent } from './login/login.component';
 import { LoginFormComponent } from './login/login-form/login-form.component';
 import { LoginSuccessComponent } from './login/login-success/login-success.component';
 
-const recipeRoutes: Routes = [
-    {
-        path: 'login', component: LoginComponent,
-        children: [{ path: '', component: LoginFormComponent },
-        { path: 'login:id', component: LoginSuccessComponent, canActivate: [AuthGuard] }]
+const loginRoutes: Routes = [
+    { path: 'login', component: LoginComponent, children:
+     [{ path: '', component: LoginFormComponent },
+        { path: ':id', component: LoginSuccessComponent
+        , canActivate: [AuthGuard]
+     }]
     }
 ];
 @NgModule({
     imports: [
-        RouterModule.forChild(recipeRoutes)
+        RouterModule.forChild(loginRoutes)
     ],
     exports: [RouterModule]
 })

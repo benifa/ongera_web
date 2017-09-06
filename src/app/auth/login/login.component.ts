@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Params } from '@angular/router';
+import { AuthService } from '../../auth/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -7,9 +9,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginComponent implements OnInit {
 
-  constructor() { }
+  // constructor() { }
 
-  ngOnInit() {
-  }
+  // ngOnInit() {
+  // }
+
+  constructor (private route: ActivatedRoute, private authService: AuthService) {}
+     ngOnInit() {
+       this.route.params
+       .subscribe(
+         (params: Params) => {
+           this.authService.setClientId(params['id']);
+         }
+       );
+     }
 
 }
