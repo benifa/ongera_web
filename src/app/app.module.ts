@@ -12,15 +12,11 @@ import { LoginSuccessComponent } from './auth/login/login-success/login-success.
 import { LoginRoutingModule } from './auth/login-routing.module';
 import { AuthService } from './auth/auth.service';
 import { AuthGuard } from './auth/auth-guard.service';
-<<<<<<< HEAD
 import { OperationsComponent } from './operations/operations.component';
 import { UserSummaryComponent } from './operations/user-summary/user-summary.component';
 import { PremiumComponent } from './operations/premium/premium.component';
 import { PremiumActionsComponent } from './operations/premium/premium-actions/premium-actions.component';
 import { OperationModule } from './operations/operation.module';
-=======
-
->>>>>>> fef83f7a2df7c140a6cf692434ef88ccdbfc4c41
 
 @NgModule({
   declarations: [
