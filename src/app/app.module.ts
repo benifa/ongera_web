@@ -15,8 +15,6 @@ import { OperationsComponent } from './operations/operations.component';
 import { UserSummaryComponent } from './operations/user-summary/user-summary.component';
 import { PremiumComponent } from './operations/premium/premium.component';
 import { PremiumActionsComponent } from './operations/premium/premium-actions/premium-actions.component';
-import { PremiumFormComponent } from './operations/premium/premium-form/premium-form.component';
-import { PremiumResultsComponent } from './operations/premium/premium-results/premium-results.component';
 import { OperationModule } from './operations/operation.module';
 
 @NgModule({

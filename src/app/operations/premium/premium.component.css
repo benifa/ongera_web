@@ -1,4 +1,14 @@
-.container-fluid{ 
-    height: 100vh;
-    overflow: auto;
+ .container {
+    height: 80%;
+    padding: 0px;
     }
+
+.col-md-3 {
+    border-right:1px solid #DB6728;
+    width: 20%;
+    height: 100%;
+}
+.col-md-5 {
+    width: 80%;
+    height: 100%;
+}
