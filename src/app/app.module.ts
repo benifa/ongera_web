@@ -26,7 +26,7 @@ import { OperationModule } from './operations/operation.module';
     LoginSuccessComponent,
     ],
   imports: [
-    BrowserModule, FormsModule, HttpModule, AppRoutingModule, LoginRoutingModule
+    BrowserModule, FormsModule, HttpModule, AppRoutingModule, LoginRoutingModule, OperationModule
   ],
   providers: [AuthService, AuthGuard],
   bootstrap: [AppComponent]
