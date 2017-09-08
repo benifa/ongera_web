@@ -1,3 +1,5 @@
-.container{ 
-    background-color: #000000;
-    }
+.img-responsive {
+    border-radius: 6px;
+    border: 2px solid  #DB6728;
+    margin: 4px;
+} 
