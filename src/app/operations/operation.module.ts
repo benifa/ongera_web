@@ -21,7 +21,7 @@ import { PremiumOperationsComponent } from './premium/premium-operations/premium
     imports: [
         CommonModule,
         ReactiveFormsModule,
-        BrowserModule, FormsModule,
+        FormsModule,
         OperationRoutingModule
     ]
 })

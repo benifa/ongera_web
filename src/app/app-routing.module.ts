@@ -3,15 +3,17 @@ import { Routes, RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './auth/login/login.component';
 import { OperationsComponent } from './operations/operations.component';
+import { OperationModule } from './operations/operation.module';
+import { LoginModule } from './auth/login.modules';
 
 
 const appRoutes: Routes = [
-
+    { path: '', redirectTo: 'bk', pathMatch: 'full' },
     { path: ':id', component: AppComponent,
      children: [
-        // { path: '', redirectTo: ':id/login', pathMatch: 'full' },
-        { path: ':id/login', component: LoginComponent },
-        { path: ':operations', component: OperationsComponent }
+        { path: '', redirectTo: 'login', pathMatch: 'full' },
+        { path: 'operations', loadChildren: () => OperationModule },
+        { path: 'login', loadChildren: () =>  LoginModule }
     ]
    }
 ];

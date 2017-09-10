@@ -7,12 +7,13 @@ import { LoginFormComponent } from './login/login-form/login-form.component';
 import { LoginSuccessComponent } from './login/login-success/login-success.component';
 
 const loginRoutes: Routes = [
-    { path: ':id/login', component: LoginComponent, children:
-     [{ path: '', component: LoginFormComponent },
-        { path: ':id', component: LoginSuccessComponent
-        , canActivate: [AuthGuard]
-     }]
-    }
+
+    { path: '', component: LoginComponent,
+    children: [
+       { path: '', component: LoginFormComponent },
+       { path: ':id', component: LoginSuccessComponent }
+   ]
+  }
 ];
 @NgModule({
     imports: [
