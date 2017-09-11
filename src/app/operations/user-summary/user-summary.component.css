@@ -1,5 +1,15 @@
-.container-fluid { 
+.row { 
     border-bottom:1px solid #db692b;
     height: 20%;
     width: 100%;
+    margin: 0px;
     }
+
+.col-md-4 {
+    margin: 4px;
+    height: 20%;
+}
+
+p {
+    text-align: center;
+}
