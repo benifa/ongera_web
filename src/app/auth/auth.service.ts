@@ -1,11 +1,13 @@
 import { Router, ActivatedRoute } from '@angular/router';
 import { Http, Response } from '@angular/http';
 import { Injectable } from '@angular/core';
+import { User } from './user.model';
 
 @Injectable()
 export class AuthService {
     clientId: string;
     token: String;
+    user: User;
     isLoading: boolean;
     constructor(private http: Http, private router: Router, private route: ActivatedRoute) {
 
@@ -21,9 +23,13 @@ export class AuthService {
             'password' : password})
             .subscribe (
                 (response: Response) => {
+                    if (response['ok']) {
                     this.isLoading = false;
-                    this.token = response['access-token'];
+                    const body = response.json();
+                    this.token = body['access_token'];
+                    this.user = body['user'];
                     this.router.navigate(['bk/operations']);
+                    }
                 },
                 (error: Error) => {
                     this.isLoading = false;
@@ -54,5 +60,9 @@ export class AuthService {
 
     getClientId() {
         return this.clientId;
+    }
+
+    getUserInfo () {
+        return this.user;
     }
 }

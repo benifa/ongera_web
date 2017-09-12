@@ -1,8 +1,8 @@
 <div class="row">
   <div class="col-md-12 col-sm-12 col-xs-12">
     <div class="col-md-4 col-sm-4 col-xs-4">
-      <p class="text-danger" name="date">Tuesday, March 02, 2007</p>
-        <p  name="time">@02:00 PM</p>
+      <p class="text-danger" name="date">{{currentUser.firstname | async}}</p>
+        <p  name="time">{{currentUser.time_since_last_login}}</p>
     </div>
 
     <div class="col-md-4 col-sm-4 col-xs-4 hidden-xs">
