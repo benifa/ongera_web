@@ -1,4 +1,4 @@
-.row { 
+.container { 
     border-bottom:1px solid #db692b;
     height: 20%;
     width: 100%;
@@ -10,6 +10,22 @@
     height: 20%;
 }
 
+.text-danger {
+color: #db692b;
+}
+
 p {
     text-align: center;
 }
+
+.card_image {
+    border-radius: 6px;
+    margin: 4px;
+} 
+
+.circle_button {
+    margin: 2px;
+    width: 50px;
+    height: 50px
+}
+

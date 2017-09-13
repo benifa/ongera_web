@@ -9,12 +9,13 @@ import { User } from '../../auth/user.model';
 })
 export class UserSummaryComponent implements OnInit {
   currentUser: User;
+  today: Date;
 
   constructor(private authService: AuthService) { }
 
   ngOnInit() {
-    const user = this.authService.getUserInfo();
-    this.currentUser = new User(user.firstname, user.lastname, user.username, user.company, user.time_since_last_login)
+    this.today = new Date();
+    this.currentUser = this.authService.getUserInfo();
   }
 
 }
