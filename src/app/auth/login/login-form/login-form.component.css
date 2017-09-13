@@ -1,10 +1,12 @@
-.jumbotron {
-  background-color: #212f3f;
+
+.login-form {
+  width: 400px;
+  margin: 0 auto;
+  max-width: 900px; 
 }
 
-.row {
-  margin-top: 25%;
-  margin-bottom: 25%;
+.jumbotron {
+  background-color: #212f3f;
 }
 
 .btn-lg.round:active {

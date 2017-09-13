@@ -1,4 +1,6 @@
-.container{ 
-    height: 100vh;
-    overflow: auto;
+.login-parent{ 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
     }
