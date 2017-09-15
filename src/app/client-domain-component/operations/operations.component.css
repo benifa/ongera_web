@@ -1,6 +1,4 @@
-.container-fluid { 
-    border:3px solid #DB6829;
-    height: 100vh;
-    width: 100%;
-    padding: 0px;
-    }
+.operations-parent {
+    border: 3px solid #DB6829;
+    height: 100%;
+}

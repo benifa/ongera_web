@@ -1,38 +1,33 @@
-<div class="containe">
 <div class="row">
   <div class="col-md-12 col-sm-12 col-xs-12">
-    <div class="col-md-3 col-sm-3 col-xs-3">
+    <div class="col-lg-4 col-md-3 col-sm-4 hidden-xs">
       <p class="text-danger" name="date">{{today.toDateString() | date :'fullDate'}}</p>
       <p name="time" style="font-weight:bold">@{{today.getTime() | date: 'shortTime'}}</p>
     </div>
 
-    <div class="col-md-3 col-sm-3 col-xs-3 hidden-xs">
+    <div class="col-lg-4 col-md-3 hidden-sm hidden-xs">
       <img src="../assets/logoongera.png" class="img-responsive center-block" alt="Responsive image">
     </div>
 
-    <div class="col-md-6 col-sm-6 col-xs-6">
+    <div class="col-lg-4 col-md-6 col-sm-8 col-xs-12">
   
-        <div class="col-md-4 col-sm-4 col-xs-4 ">
+        <div class="col-md-4 col-sm-3 col-xs-3 ">
           <img src="../assets/profile-pic.png" class="img-responsive card_image center-block" alt="Responsive image">
         </div>
 
         <div class="col-md-5 col-sm-5 col-xs-5">
           <p class="text-danger">Welcome back</p>
-          <p style="font-weight:bold">{{currentUser.firstname}} {{currentUser.lastname}}</p>
+          <p style="text-overflow: ellipsis; font-weight:bold">{{currentUser.firstname}} {{currentUser.lastname}}</p>
           <p>
           <p class="text-danger">Last Logged In</p>
           <p style="font-weight:bold">{{currentUser.time_since_last_login}}</p>
         </div>
 
-        <div class="col-md-2 col-sm-3 col-xs-3 ">
+        <div class="col-md-2 col-sm-3 col-xs-3">
             <img src="../assets/logout.png" class="img-responsive  circle_button " alt="Responsive image">
             <img src="../assets/setting.png" class="img-responsive circle_button " alt="Responsive image">
           </div>
       
     </div>
-
-
-
   </div>
-</div>
 </div>

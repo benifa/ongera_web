@@ -1,14 +1,3 @@
-.container { 
-    border-bottom:1px solid #db692b;
-    height: 20%;
-    width: 100%;
-    margin: 0px;
-    }
-
-.col-md-4 {
-    margin: 4px;
-    height: 20%;
-}
 
 .text-danger {
 color: #db692b;
