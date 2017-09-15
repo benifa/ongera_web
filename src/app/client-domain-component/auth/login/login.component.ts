@@ -14,14 +14,8 @@ export class LoginComponent implements OnInit {
   // ngOnInit() {
   // }
 
-  constructor (private route: ActivatedRoute, private authService: AuthService) {}
-     ngOnInit() {
-       this.route.params
-       .subscribe(
-         (params: Params) => {
-           this.authService.setClientId(params['id']);
-         }
-       );
-     }
+  constructor(private route: ActivatedRoute, private authService: AuthService) { }
+  ngOnInit() {
+  }
 
 }

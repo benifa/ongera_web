@@ -11,7 +11,7 @@ const loginRoutes: Routes = [
     { path: '', component: LoginComponent,
     children: [
        { path: '', component: LoginFormComponent },
-       { path: ':id', component: LoginSuccessComponent }
+       { path: ':id', component: LoginSuccessComponent, canActivate: [AuthGuard] }
    ]
   }
 ];

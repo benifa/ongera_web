@@ -1,6 +1,6 @@
+import { AuthService } from './client-domain-component/auth/auth.service';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
-import { AuthService } from './auth/auth.service';
 
 @Component({
   selector: 'app-root',
@@ -14,12 +14,5 @@ export class AppComponent implements OnInit {
   constructor (private route: ActivatedRoute, private authService: AuthService) {}
 
    ngOnInit() {
-     this.route.params
-     .subscribe(
-       (params: Params) => {
-         const client = params['id'];
-         this.authService.setClientId(client);
-       }
-     );
    }
 }

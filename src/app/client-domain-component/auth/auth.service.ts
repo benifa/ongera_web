@@ -18,7 +18,7 @@ export class AuthService {
 
     loginUser(email: string, password: string) {
         this.isLoading = true;
-        this.http.post('https://ongera-api.herokuapp.com/' + 'bk' + '/login', {
+        this.http.post('https://ongera-api.herokuapp.com/' + this.clientId + '/login', {
             'username' : email,
             'password' : password})
             .subscribe (
@@ -28,7 +28,7 @@ export class AuthService {
                     const body = response.json();
                     this.token = body['access_token'];
                     this.user = body['user'];
-                    this.router.navigate(['bk/operations']);
+                    this.router.navigate([this.clientId + '/login', this.user.firstname]);
                     }
                 },
                 (error: Error) => {

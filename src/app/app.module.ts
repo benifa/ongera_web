@@ -1,3 +1,4 @@
+import { ClientDomainModule } from './client-domain-component/client-domain.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
@@ -6,19 +7,15 @@ import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
-import { LoginModule } from './auth/login.modules';
-import { AuthService } from './auth/auth.service';
-import { AuthGuard } from './auth/auth-guard.service';
-import { OperationModule } from './operations/operation.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
     AppComponent
     ],
   imports: [
-    BrowserModule, FormsModule, HttpModule, AppRoutingModule, LoginModule, OperationModule
+    FormsModule, BrowserModule, BrowserAnimationsModule, HttpModule, AppRoutingModule, ClientDomainModule
   ],
-  providers: [AuthService, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
