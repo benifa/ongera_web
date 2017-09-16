@@ -1,8 +1,7 @@
-import { ClientDomainModule } from './client-domain-component/client-domain.module';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
-
+import { ClientDomainModule } from './client-domain-component/client-domain.module';
 import { LoginComponent } from './client-domain-component/auth/login/login.component';
 import { OperationsComponent } from './client-domain-component/operations/operations.component';
 import { OperationModule } from './client-domain-component/operations/operation.module';
