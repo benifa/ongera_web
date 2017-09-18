@@ -8,9 +8,9 @@ import{ICurrency} from'./currency-selector/currency.model'
 export class OperationService{
 
   getCurrencyList():ICurrency[]{
-     return CURRENCIES;
-  }
     
+      return CURRENCIES
+  }
 }
 
 

@@ -1,0 +1,27 @@
+li{
+    display: block;
+    width: 100%;
+    background: #33404F;
+    border: black;
+    margin-bottom: 1px;
+    border-radius: 3px;
+    margin-right: 2px;
+    outline: 0;
+    margin-left: 7%;
+
+}
+
+li:hover { 
+    background-color: #F17C40;
+    color: white;
+    cursor: pointer;
+    cursor: hand;
+}
+
+li a{
+    display: block; 
+    width: 100%;
+    color: white;
+    text-decoration: none !important;
+    font-size: 12px;
+}

@@ -1,3 +1,33 @@
-<p>
-  premium-form works!
-</p>
+
+<div class="operation-form">
+  <div class="main-title">
+       <div class="choose-currency-title" >
+        <p>Choose your couple of currencies</p>
+      </div>
+     <div class="currency-name">
+        <p>Local Currency</p>
+        <div class="currencies">
+            <button class="currency-picker-button">RWF</button> 
+            <div class="currency-component"*ngFor="let currency of currencies" >
+                <currency-selector [currency]="currency"></currency-selector>
+             </div> 
+             <currency-selector [currency]="currency1"class="currency-component"></currency-selector>
+        </div> 
+      </div>
+      <div class="currency-name">
+        <p>Foreign Currency</p>  
+        <div class="currencies">
+            <button class="currency-picker-button">{{currency.symbol}}}</button> 
+           <div class="currency-component"*ngFor="let currency of currencies" >
+              <currency-selector [currency]="currency"></currency-selector>
+           </div> 
+        </div> 
+      </div>
+  </div>
+</div>
+
+
+
+<div class ="col-md-5" *ngFor="let event of events" >
+    <event-thumbnail  [event]="event"></event-thumbnail>
+ <div>

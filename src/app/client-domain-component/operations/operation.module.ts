@@ -9,14 +9,23 @@ import { OperationRoutingModule } from './operation-routing.module';
 import { OperationsComponent } from './operations.component';
 import { PremiumActionsComponent } from './premium/premium-actions/premium-actions.component';
 import { PremiumOperationsComponent } from './premium/premium-operations/premium-operations.component';
+import { PremiumFormComponent } from './premium/premium-operations/premium-form/premium-form.component';
+import { PremiumResultsComponent } from './premium/premium-operations/premium-results/premium-results.component';
+import { CurrencySelectorComponent } from './shared/currency-selector/currency-selector.component';
+import { CurrenciesListDirectiveDirective } from './shared/currencies-list-directive.directive';
+import { OperationService } from './shared/operation.service';
 
+CurrencySelectorComponent
 @NgModule({
     declarations: [
         OperationsComponent,
         PremiumComponent,
         UserSummaryComponent,
         PremiumActionsComponent,
-        PremiumOperationsComponent
+        PremiumOperationsComponent,
+        PremiumFormComponent,
+        PremiumResultsComponent,
+        CurrencySelectorComponent
     ],
     imports: [
         CommonModule,
@@ -29,3 +38,4 @@ import { PremiumOperationsComponent } from './premium/premium-operations/premium
 export class OperationModule {
 
 }
+

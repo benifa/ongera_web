@@ -5,6 +5,7 @@ import { ClientDomainComponent } from './client-domain.component';
 import { LoginModule } from './auth/login.modules';
 import { OperationModule } from './operations/operation.module';
 
+
 const clientRoutes: Routes = [
 
     { path: '', component: ClientDomainComponent,
