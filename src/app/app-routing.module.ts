@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+
 import { AppComponent } from './app.component';
 import { ClientDomainModule } from './client-domain-component/client-domain.module';
 import { LoginComponent } from './client-domain-component/auth/login/login.component';

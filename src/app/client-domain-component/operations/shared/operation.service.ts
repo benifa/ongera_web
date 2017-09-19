@@ -15,7 +15,7 @@ export class OperationService{
 
 
 
-const CURRENCIES :ICurrency [] = [
+const CURRENCIES: ICurrency [] = [
     {
    symbol:"USD",
    name:"American Dollar"

@@ -15,7 +15,7 @@
     border-radius: 8px;
     padding: 8px;
     font-size: 0.875em;
-    width: 100%;
+    width: 30%;
     text-align: center;
     outline: 0;
     height: 50px;
@@ -32,7 +32,7 @@
     border-radius: 5px; 
     font-size: 1em;
     font-style: italic;
-    width: 100%;
+    width: 30%;
     font-weight: bolder;
     text-align: center;
     padding:8px;
@@ -46,9 +46,10 @@
 
   .currency-picker-button{
     border-radius: 40px;
-    height: 68px;
+    height: 62px;
+    -ms-flex-line-pack: center;
     align-content: center;
-    width:  33%;
+    width: 60px;
     background-color: #222B3A;
     border: 1.5px solid #222B3A;
     color: #EC7A40;
@@ -56,11 +57,19 @@
     float: left;
     border: 1.5px solid #0a66ad;
     
-    
   }
 
-  .currency-component{
+  .currency-directive{
       width: 66.666666666%;
       padding-left: 0px;
+      flex-direction: column;
+      flex-flow: flex-direction;
+      
+      
+  }
+
+  .currency-btn{
+    width: 33.33333%;
+    
   }
   
