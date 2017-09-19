@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-//import{OperationService} from '../../../shared/operation.service';
-import{ICurrency} from'../../../shared/currency-selector/currency.model'
+import { ICurrency } from '../../../shared/currency-selector/currency.model';
 
 @Component({
   selector: 'app-premium-form',
@@ -8,7 +7,11 @@ import{ICurrency} from'../../../shared/currency-selector/currency.model'
   styleUrls: ['./premium-form.component.css']
 })
 export class PremiumFormComponent implements OnInit {
-  currencies:ICurrency[] 
+  currencies: ICurrency[];
+  currency1 = {
+    symbol: 'USD',
+    name: 'US Dollars'
+  };
 
   constructor() { }
 
@@ -16,10 +19,4 @@ export class PremiumFormComponent implements OnInit {
  //  this.currencies =  this.operationService.getCurrencyList()
  //private operationService:OperationService
   }
-  currency1 ={
-    symbol: "USD",
-    name: "US Dollars"
-              
-  }
-
 }
