@@ -10,7 +10,7 @@ import { LoginModule } from './client-domain-component/auth/login.modules';
 import { AuthGuard } from './client-domain-component/auth/auth-guard.service';
 
 
-const appRoutes: Routes = [
+export const appRoutes: Routes = [
     { path: '', redirectTo: 'bk', pathMatch: 'full' },
     { path: ':id', loadChildren: () => ClientDomainModule }
 ];

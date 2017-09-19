@@ -12,6 +12,10 @@ p {
     margin: 4px;
 } 
 
+.last-login {
+    margin-top: 20px;
+}
+
 .circle_button {
     margin: 2px;
     width: 50px;
