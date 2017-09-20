@@ -9,9 +9,10 @@ import {ICurrency} from '../../../shared/currency-selector/currency.model';
 })
 export class PremiumFormComponent implements OnInit {
   currencies: ICurrency[];
-  currencyA: ICurrency;
-  currencyB: ICurrency;
-
+  currencyA: any;
+  currencyB: any;
+  displayCurrencySelectorB: boolean;
+  displayCurrencySelectorA: boolean;
 
   constructor( ) {
 
@@ -21,8 +22,40 @@ export class PremiumFormComponent implements OnInit {
     this.currencies = this.CURRENCIES;
     this.currencyA = this.CURRENCIES[1];
     this.currencyB = this.CURRENCIES[3];
+    this.displayCurrencySelectorB = false;
+    this.displayCurrencySelectorA = false;
+
   }
 
+
+  chooseCurrencyB() {
+     if (this.displayCurrencySelectorB === true) {
+      this.displayCurrencySelectorB = false;
+     }else{
+      this.displayCurrencySelectorB = true;
+     }
+  }
+
+  chooseCurrencyA() {
+    if (this.displayCurrencySelectorA === true) {
+      this.displayCurrencySelectorA = false;
+      console.log((this.displayCurrencySelectorA ));
+      
+     }
+      else {this.displayCurrencySelectorA = true;
+      }
+}
+
+
+choosenCurrencyB(choosenCurrencyB){
+  this.currencyB = choosenCurrencyB;
+  this.displayCurrencySelectorB = false;
+}
+
+choosenCurrencyA(choosenCurrencyA){
+  this.currencyA = choosenCurrencyA;
+  this.displayCurrencySelectorA = false;
+}
  // tslint:disable-next-line:member-ordering
  CURRENCIES: ICurrency [] = [
   {

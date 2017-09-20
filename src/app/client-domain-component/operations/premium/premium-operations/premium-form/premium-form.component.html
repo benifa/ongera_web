@@ -8,12 +8,11 @@
         <p>Local Currency</p>
         <div class="currencies">
           <div class="currency-btn">
-            <button class="currency-picker-button">{{currencyA.symbol}}</button> 
-          </div>
-        
-          <div>
+            <button (click) = "chooseCurrencyA()" class="currency-picker-button">{{currencyA.symbol}}</button> 
+          </div>       
+          <div *ngIf="displayCurrencySelectorA">              
               <div class = "currency-component"*ngFor="let currency of currencies" >
-                <currency-selector [currency]="currency"></currency-selector>
+                <currency-selector (click)="choosenCurrencyA(currency)" [currency]="currency"></currency-selector>
               </div> 
           </div>
         </div> 
@@ -22,14 +21,15 @@
         <p>Foreign Currency</p>  
         <div class="currencies">
           <div class="currency-btn"> 
-           <button class="currency-picker-button">{{currencyB.symbol}}</button> 
+           <button   (click) = "chooseCurrencyB()"class="currency-picker-button">{{currencyB.symbol}}</button> 
         </div>
-          <div>
+          <div *ngIf="displayCurrencySelectorB">
             <div class = "currency-component"*ngFor="let currency of currencies" >
-              <currency-selector [currency]="currency"></currency-selector>
+              <currency-selector (click)="choosenCurrencyB(currency)"[currency]="currency"></currency-selector>
             </div> 
           </div>
         </div> 
       </div>
   </div>
 </div>
+
