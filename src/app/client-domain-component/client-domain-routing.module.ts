@@ -11,7 +11,9 @@ const clientRoutes: Routes = [
     { path: '', component: ClientDomainComponent,
      children: [
         { path: '', redirectTo: 'login', pathMatch: 'full' },
-        { path: 'operations', loadChildren: getOperationModule, canActivate: [AuthGuard] },
+        { path: 'operations', loadChildren: getOperationModule
+        // , canActivate: [AuthGuard]
+     },
         { path: 'login', loadChildren: getLoginModule }
     ]
    }

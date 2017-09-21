@@ -5,8 +5,12 @@
 } 
 
 .side-action{
-    border: 1px solid  #DB6728;
-    height: 100%;
-    
+    border: 1px solid  #DB6728;  
+}
+
+@media (min-width: 1200px) { 
+    .side-action{ 
+        min-height: 100%;  
+    }
 }
 
