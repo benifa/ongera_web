@@ -1,14 +1,17 @@
 
- .main-title {
+ .main-row {
     display: flex;
     flex-direction: row;
-    justify-content:space-around;
+    justify-content: flex-start;
 }
 .currencies{
     display: flex;
     flex-direction: row;
 }
-.choose-currency-title{
+#row-title-spacing{
+    margin-top: 100px;
+}
+.row-title{
     background-color: #222B3A;
     color: white;
     border: 1.5px solid #F5B78D;
@@ -72,4 +75,73 @@
     width: 33.33333%;
     
   }
+
+  .main-form-row{
+    display: flex;
+    flex-direction: row; 
+  }
+
   
+  #column-1{
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    width: 40%;
+    -webkit-box-pack: end;
+    -ms-flex-pack: end;
+    justify-content: flex-end;
+    margin-left: auto
+  
+}
+.void-column{
+width: 100%;
+}
+#label-column{
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    width: 40%;
+    -webkit-box-pack: end;
+    -ms-flex-pack: end;
+    justify-content: flex-end;
+    margin-left: auto
+}
+#column-2{
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+}
+
+#column-3{
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+}
+.feature-label{
+    background-color: #FBE5D6;
+    color: #4C5B6C;
+    float: right;
+    border: 1.5px solid #F5B78D;
+    border-radius: 5px;
+    font-weight: 600;
+    font-size: 1em;
+    width: 135px;
+    height: 30px;
+    margin-top: 20px;
+    text-align: center;
+    font-style: italic;
+    outline: 0;
+}
+.expected-eprecition-label{
+    margin-top: 30px;
+    height: 50px;
+    
+}
