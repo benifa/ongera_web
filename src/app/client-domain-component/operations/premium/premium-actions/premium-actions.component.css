@@ -1,16 +1,22 @@
 .action-images-style {
+    height: 70%;
+    width: 70%;
     border-radius: 6px;
     border: 2px solid  #DB6728;
-    margin: 5px;
+    margin-top: 5px;
 } 
 
 .side-action{
-    border: 1px solid  #DB6728;  
+    border: 2px solid  #DB6728;  
 }
+
 
 @media (min-width: 1200px) { 
     .side-action{ 
         min-height: 100%;  
+    }
+    .share-menu  {
+        padding: 4px;
     }
 }
 

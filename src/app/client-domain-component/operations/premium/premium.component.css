@@ -1,16 +1,8 @@
  .premium {
-    border-top:1px solid #db692b;
-    /* position: absolute; */
-    /* display: table-row;
-    position: relative;
-    height: 100%;
-    padding: 0px; */
-
-    /* height: 100%; */
+    border-top: 2px solid #db692b;
+    width: 100%;
+    margin: 0px;
     position: absolute;
-    top: 20%;
+    top: 16%;
     bottom: 0;
- 
-
-    /* background-color: #000000;  */
 }

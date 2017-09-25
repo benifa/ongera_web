@@ -1,6 +1,8 @@
 .operations-parent {
-    border: 3px solid #DB6829;
+    border: 4px solid #DB6829;
     min-height: 100%;
+    margin: 0px;
+    width: 100%;
     position: relative;
     height: auto;
     overflow: scroll;
