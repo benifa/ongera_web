@@ -12,7 +12,7 @@ const clientRoutes: Routes = [
      children: [
         { path: '', redirectTo: 'login', pathMatch: 'full' },
         { path: 'operations', loadChildren: getOperationModule
-        // , canActivate: [AuthGuard]
+        , canActivate: [AuthGuard]
      },
         { path: 'login', loadChildren: getLoginModule }
     ]

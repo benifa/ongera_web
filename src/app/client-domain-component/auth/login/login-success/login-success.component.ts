@@ -1,3 +1,4 @@
+import { User } from './../../user.model';
 import { Router } from '@angular/router';
 import { AuthService } from './../../auth.service';
 import { Component, OnInit } from '@angular/core';
@@ -16,10 +17,12 @@ import { trigger, state, style, transition, animate } from '@angular/animations'
 })
 export class LoginSuccessComponent implements OnInit {
   state = 'normal';
+  currentUser: User;
 
   constructor(private authService: AuthService, private router: Router) { }
 
   ngOnInit() {
+    this.currentUser = this.authService.getUserInfo();
   }
 
   animationDone(event: Event) {

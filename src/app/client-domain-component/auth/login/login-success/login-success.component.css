@@ -1,3 +1,31 @@
-/* .ok {
-    background-color: #000000
-} */
+.containerBox {
+    position: relative;
+    display: block;
+    height: auto;
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+}
+.text-box {
+    position: absolute;    
+    height: 100%;
+    text-align: center;    
+    width: 100%;
+}
+.text-box:before {
+   content: '';
+   display: inline-block;
+   height: 100%;
+   vertical-align: middle;
+}
+h4 {
+   display: inline-block;
+   font-size: 16px;
+   color: #f3b493;   
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
