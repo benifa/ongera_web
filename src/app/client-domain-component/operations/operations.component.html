@@ -1,4 +1,5 @@
 <div class="row operations-parent">
   <app-user-summary></app-user-summary>
   <app-premium></app-premium>
+  <img  *ngIf="authService.isLoading" src="../assets/loading.png" class="img-responsive center-block" alt="Responsive image">
 </div>

@@ -18,4 +18,8 @@ export class UserSummaryComponent implements OnInit {
     this.currentUser = this.authService.getUserInfo();
   }
 
+  logout() {
+    this.authService.logout();
+  }
+
 }
