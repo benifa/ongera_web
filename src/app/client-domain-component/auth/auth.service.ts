@@ -1,5 +1,5 @@
 import { Router, ActivatedRoute } from '@angular/router';
-import { Http, Response } from '@angular/http';
+import { Http, Response, RequestOptions, Headers} from '@angular/http';
 import { Injectable } from '@angular/core';
 import { User } from './user.model';
 
@@ -39,6 +39,19 @@ export class AuthService {
     }
 
     logout() {
+        this.isLoading = true;
+        this.http.post('https://ongera-api.herokuapp.com/logout', this.getHeaders())
+            .subscribe (
+                (response: Response) => {
+                    if (response['ok']) {
+                    this.isLoading = false;
+                    this.router.navigate([this.clientId + '/login']);
+                    }
+                },
+                (error: Error) => {
+                    this.isLoading = false;
+                }
+            );
         this.token = null;
     }
 
@@ -64,5 +77,12 @@ export class AuthService {
 
     getUserInfo () {
         return this.user;
+    }
+
+    getHeaders() {
+        const headersParams = new Headers();
+        headersParams.append('Content-Type', 'application/json');
+        headersParams.append('Authorization', 'Bearer '  + this.token);
+        return new RequestOptions({headers: headersParams});
     }
 }

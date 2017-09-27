@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { PlatformLocation } from '@angular/common';
+import { AuthService } from './../auth/auth.service';
+import { Component, OnInit, HostListener } from '@angular/core';
 
 @Component({
   selector: 'app-operations',
@@ -7,9 +10,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class OperationsComponent implements OnInit {
 
-  constructor() { }
+  constructor(private authService: AuthService, private router: Router,
+    private location: PlatformLocation) { }
 
   ngOnInit() {
+  }
+
+  @HostListener('window:popstate', ['$event'])
+  onPopState(event) {
+    this.authService.logout();
   }
 
 }
