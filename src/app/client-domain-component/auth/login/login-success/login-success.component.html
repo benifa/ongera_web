@@ -1,17 +1,12 @@
 <div class="login-success">
 
-  <div class="containerBox">
+  <div [@FadeState]="state" class="containerBox">
     <div class="text-box">
-<<<<<<< HEAD
-      <h4>Welcome <br>{{currentUser.firstname}} {{currentUser.lastname}}<br> </h4>
-      <!-- <h5> <br>Loading your workspace..</h5> -->
-=======
       <h4>Welcome <br>{{currentUser.firstname}} {{currentUser.lastname}} <br><br><span class="whiteFont">Loading...</span></h4>
->>>>>>> 4b9c30a965bdd45e84dca2a13b7b8f9b38cd091b
     </div>
     <img class="img-responsive" src="../assets/message_bg.png" />
   </div>
 
-  <img [@loggedIn]="state" (@loggedIn.done)="animationDone($event)" src="../assets/loading.png" class="img-responsive center-block"
+  <img [@CurveState]="state" (@CurveState.done)="animationDone($event)" src="../assets/loading.png" class="img-responsive center-block"
     alt="Responsive image">
 </div>

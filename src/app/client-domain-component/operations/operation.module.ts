@@ -1,6 +1,5 @@
 import { ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 import { PremiumComponent } from './premium/premium.component';
@@ -15,7 +14,6 @@ import { CurrencySelectorComponent } from './shared/currency-selector/currency-s
 import { CurrenciesListDirectiveDirective } from './shared/currencies-list-directive.directive';
 import { OperationService } from './shared/operation.service';
 
-CurrencySelectorComponent
 @NgModule({
     declarations: [
         OperationsComponent,
