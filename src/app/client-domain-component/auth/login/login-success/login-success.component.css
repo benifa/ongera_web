@@ -24,6 +24,11 @@ h4 {
    color: #f3b493;   
 }
 
+h5 {
+    display: inline-block;
+    font-size: 14px;
+    color: white;   
+ }
 img {
   display: block;
   max-width: 100%;
