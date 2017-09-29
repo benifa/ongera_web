@@ -37,46 +37,47 @@
           <p>Characterize each of your currencies</p>
       </div>
   </div>
-  <div class="main-form-row">
+  <form class="main-form-row">
     <div id="column-1">
       <div class="void-column">
 
       </div>
       <div id ="label-column">
-        <p class="feature-label first-label">Interest Rate</p>
+        <p class="feature-label first-label">Pricing Date</p>          
+        <p class="feature-label ">Interest Rate</p>
         <p class="feature-label">Forex Rate</p>
-        <p class="feature-label">Pricing Date</p>
         <p class="feature-label">Maturity Time</p>
         <p class="feature-label expected-eprecition-label">Expected Depreciation</p>
       </div>
     </div>
 
     <div id="column-2">
-        <input type="" name="" class="input-btn-generic" />
-        <input type="" name="" class="input-btn-generic" />
-        <input type="" name="" class="input-btn-generic" />
+        <input [ngClass]="{'input-btn-click': customInputBtn.pricingDate}" (click)="inputBtnclicked('pricingDate')" type="" name="" class="input-btn-generic" />        
+        <input [ngClass]="{'input-btn-click': customInputBtn.interestRate}" (click)="inputBtnclicked('interestRate')" type="" name="" class="input-btn-generic" />
+        <input [ngClass]="{'input-btn-click': customInputBtn.forexRate}" (click)="inputBtnclicked('forexRate')" type="" name="" class="input-btn-generic" />
         <div id="maturity-time">
           <div id ="maturity-time-row-1">
-            <input type="" name="" class="input-btn-maturity" />
-            <input type="" name="" class="input-btn-maturity" />
-            <input type="" name="" class="input-btn-maturity" />
+            <input [ngClass]="{'input-btn-click': customInputBtn.maturityTime.thirty }" (click)="inputBtnclicked('maturityTime30')" type="" name="" class="input-btn-maturity" />
+            <input [ngClass]="{'input-btn-click': customInputBtn.maturityTime.sixty }" (click)="inputBtnclicked('maturityTime60')" type="" name="" class="input-btn-maturity"  />
+            <input [ngClass]="{'input-btn-click': customInputBtn.maturityTime.oneHundredEighty }" (click)="inputBtnclicked('maturityTime180')" type="" name="" class="input-btn-maturity"  />
           </div>
            <div id ="maturity-time-row-2">
-            <input type="" name="" class="input-btn-maturity" />
-            <input type="" name="" class="input-btn-maturity" />
-            <input type="" name="" class="input-btn-maturity" />
+            <input [ngClass]="{'input-btn-click': customInputBtn.maturityTime.ninety }" (click)="inputBtnclicked('maturityTime90')" type="" name="" class="input-btn-maturity"/>
+            <input [ngClass]="{'input-btn-click': customInputBtn.maturityTime.threeHundredSixty }" (click)="inputBtnclicked('maturityTime360')" type="" name="" class="input-btn-maturity"/>
+            <input [ngClass]="{'input-btn-click': customInputBtn.maturityTime.typeBtn }" (click)="inputBtnclicked('maturityTimeType')" type="" name="" class="input-btn-maturity"/> 
+            
           </div>  
       </div>
-        <input type="" name="" class="input-btn-generic" />
+        <input [ngClass]="{'input-btn-click': customInputBtn.typeBtn }" (click)="inputBtnclicked('typeBtn')" type="" name="" class="input-btn-generic"  />
         
     </div>
 
     <div id="column-3"> 
-        <input type="" name="InterestRate" class="input-btn-generic" />
-        <input type="" name="InterestRate" class="input-btn-generic" />
-        
-    </div>
+        <input type="" name="InterestRate" class="void-btn" />
+        <input type="" name="InterestRate" class="void-btn" />        
+        <input [ngClass]="{'input-btn-click': customInputBtn.forexRateTwo}" (click)="inputBtnclicked('forexRateColumnTwo')" type="" name="" class="input-btn-generic" />
+      </div>
     
-  </div>
+  </form>
 </div>
 
