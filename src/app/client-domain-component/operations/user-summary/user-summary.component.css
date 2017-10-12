@@ -1,6 +1,11 @@
+.summary {
+    height: 16%;
+    position: relative;
+    margin: 0px;
+}
 
 .text-danger {
-color: #db692b;
+    color: #db692b;
 }
 
 p {
@@ -10,7 +15,7 @@ p {
 .card_image {
     border-radius: 6px;
     margin: 4px;
-} 
+}
 
 .last-login {
     margin-top: 20px;
@@ -21,4 +26,5 @@ p {
     width: 50px;
     height: 50px
 }
+
 

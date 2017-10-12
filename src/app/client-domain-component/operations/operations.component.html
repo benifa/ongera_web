@@ -1,4 +1,9 @@
-<div class="operations-parent">
-  <app-user-summary></app-user-summary>
-  <app-premium></app-premium>
+<div class="row operations-parent">
+  <div *ngIf="!logout">
+    <app-user-summary></app-user-summary>
+    <app-premium></app-premium>
+  </div>
+
+  <!-- (@CurveState.done)="animationDone($event) -->
+  <img [@LogoutFadeState]="state" (@LogoutFadeState.done)="animateLogout($event)"  *ngIf="logout" src="../assets/loading.png" class="img-responsive center-block" alt="Responsive image">
 </div>

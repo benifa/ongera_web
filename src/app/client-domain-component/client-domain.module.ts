@@ -14,7 +14,7 @@ import { ActivatedRoute, Params } from '@angular/router';
         ClientDomainComponent
     ],
     imports: [
-        CommonModule, FormsModule, ClientDomainRoutingModule, LoginModule, OperationModule
+        CommonModule, FormsModule, ClientDomainRoutingModule, OperationModule, LoginModule
     ],
     providers: [AuthService, AuthGuard]
 })

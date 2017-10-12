@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+
 import { AppComponent } from './app.component';
 import { ClientDomainModule } from './client-domain-component/client-domain.module';
 import { LoginComponent } from './client-domain-component/auth/login/login.component';
@@ -8,11 +9,14 @@ import { OperationModule } from './client-domain-component/operations/operation.
 import { LoginModule } from './client-domain-component/auth/login.modules';
 import { AuthGuard } from './client-domain-component/auth/auth-guard.service';
 
-
-export const appRoutes: Routes = [
+const appRoutes: Routes = [
     { path: '', redirectTo: 'bk', pathMatch: 'full' },
-    { path: ':id', loadChildren: () => ClientDomainModule }
+    { path: ':id', loadChildren: getClientModule}
 ];
+
+export function getClientModule() {
+    return ClientDomainModule;
+}
 
 @NgModule({
     imports: [RouterModule.forRoot(appRoutes)],
@@ -20,5 +24,4 @@ export const appRoutes: Routes = [
 
 })
 export class AppRoutingModule {
-
 }

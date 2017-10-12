@@ -1,0 +1,52 @@
+.jumbotron {
+    padding: 4px;
+    background-color: #212f3f;
+    border-radius: 12px;
+    border: 2px solid #db692b;
+  }
+
+  .bg-text-view {
+    background-color: #fae5d7; 
+    padding: 4px;
+    font-size: 13px;
+    font-style: italic;
+    font-weight: bold;
+    height: auto;
+    border-radius: 4px;
+    border: 1px solid #db692b;
+    text-align: center;
+  }
+
+  h4 {
+      text-align: center;
+      font-size: 13px;
+      color: white;
+  } 
+
+  .input-btn-generic{
+    border-radius: 40px;
+    height: 60px;
+    align-content: center;
+    width:  60px;
+    background-color: #FBE5D6;;
+    border: 1.5px solid #F5B78D;
+    margin-left: 30%;
+    color: #4C5B6C;
+    outline: 0;
+    padding: 3px;
+    font-style: italic;
+    margin-top: 7px;
+    margin-left: auto;
+}
+.center-vert {
+    margin-top: 5%;
+    /* display: flex;
+    align-items: center; */
+}
+
+.vert-align {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+

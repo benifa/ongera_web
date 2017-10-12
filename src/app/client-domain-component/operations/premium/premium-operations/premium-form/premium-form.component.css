@@ -1,21 +1,24 @@
 
- .main-title {
+ .main-row {
     display: flex;
     flex-direction: row;
-    justify-content:space-around;
+    justify-content: flex-start;
 }
 .currencies{
     display: flex;
     flex-direction: row;
 }
-.choose-currency-title{
+#row-title-spacing{
+    margin-top: 100px;
+}
+.row-title{
     background-color: #222B3A;
     color: white;
     border: 1.5px solid #F5B78D;
     border-radius: 8px;
     padding: 8px;
     font-size: 0.875em;
-    width: 100%;
+    width: 30%;
     text-align: center;
     outline: 0;
     height: 50px;
@@ -32,7 +35,7 @@
     border-radius: 5px; 
     font-size: 1em;
     font-style: italic;
-    width: 100%;
+    width: 30%;
     font-weight: bolder;
     text-align: center;
     padding:8px;
@@ -46,9 +49,10 @@
 
   .currency-picker-button{
     border-radius: 40px;
-    height: 68px;
+    height: 62px;
+    -ms-flex-line-pack: center;
     align-content: center;
-    width:  33%;
+    width: 60px;
     background-color: #222B3A;
     border: 1.5px solid #222B3A;
     color: #EC7A40;
@@ -56,11 +60,193 @@
     float: left;
     border: 1.5px solid #0a66ad;
     
+  }
+
+  .currency-directive{
+      width: 66.666666666%;
+      padding-left: 0px;
+      flex-direction: column;
+      flex-flow: flex-direction;
+      
+      
+  }
+
+  .currency-btn{
+    width: 33.33333%;
     
   }
 
-  .currency-component{
-      width: 66.666666666%;
-      padding-left: 0px;
+  .main-form-row{
+    display: flex;
+    flex-direction: row; 
   }
+
   
+  #column-1{
+    width: 40%;
+}
+.void-column{
+width: 0%;
+}
+#label-column{
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    width: 35%;
+    -webkit-box-pack: end;
+    -ms-flex-pack: end;
+    justify-content: flex-end;
+    margin-left: auto
+}
+#column-2{
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+    justify-content: flex-start;
+}
+
+#column-3{
+    display: flex;
+    flex-direction: column;
+    width: 25%;
+}
+.feature-label{
+    background-color: #FBE5D6;
+    color: #4C5B6C;
+    float: right;
+    border: 1.5px solid #F5B78D;
+    border-radius: 5px;
+    font-weight: 600;
+    font-size: 1em;
+    width: 135px;
+    height: 30px;
+    margin-top: 40px;
+    text-align: center;
+    font-style: italic;
+    outline: 0;
+}
+.expected-eprecition-label{
+    margin-top: 30px;
+    height: 50px;
+    
+}
+
+.input-btn-generic{
+    border-radius: 40px;
+    height: 60px;
+    align-content: center;
+    width:  60px;
+    background-color: #FBE5D6;;
+    border: 1.5px solid #F5B78D;
+    margin-left: 40%;
+    color: #4C5B6C;
+    outline: 0;
+    padding: 3px;
+    font-style: italic;
+    margin-top: 7px;
+    text-align:center;
+    align-self:middle;
+}
+.input-btn-maturity{
+
+    border-radius: 40px;
+    height: 60px;
+    align-content: center;
+    width:  60px;
+    background-color: #FBE5D6;;
+    border: 1.5px solid #F5B78D;
+    color: #4C5B6C;
+    outline: 0;
+    padding: 3px;
+    font-style: italic;
+    margin-left: -3%;
+    text-align:center;
+    align-self:middle;
+
+}
+.first-label{
+    margin-top:20px;
+}
+#maturity-time{
+    display: flex;
+    flex-direction: column;
+    margin-top:25px;
+    margin-left: 25%;
+}
+#maturity-time-row-1{
+    display: flex;
+    flex-direction: row;
+}
+#maturity-time-row-2{
+    display: flex;
+    flex-direction: row;
+    margin-top: -20px;
+    margin-left:30px;
+}
+
+.input-btn-click {
+    background: #222b3a !important;
+    color:  #EC7A40 !important;
+    text-align:center;
+    align-self:middle;
+}
+
+.void-btn{
+    border-radius: 40px;
+    height: 60px;
+    align-content: center;
+    width:  60px;
+    background-color: #FBE5D6;;
+    border: 1.5px solid #F5B78D;
+    margin-left: 40%;
+    color: #4C5B6C;
+    outline: 0;
+    padding: 3px;
+    font-style: italic;
+    margin-top: 7px;
+    visibility: hidden;
+    
+   
+}
+.compute-btn{
+    margin-top: 70px !important;
+    width: 110%;
+    border-radius: 11px;
+
+}
+
+.interest-rate-label{
+    margin-left: 72%;}
+
+
+    @media only screen and (max-width: 700px) {
+        
+            /* #column-1  {  
+                width: 40%;      
+            }
+            .void-column{
+            width: 0%;
+            } */
+            #label-column{
+                display: -webkit-box;
+                display: -ms-flexbox;
+                display: flex;
+                -webkit-box-orient: vertical;
+                -webkit-box-direction: normal;
+                -ms-flex-direction: column;
+                flex-direction: column;
+                width: 35%;
+                margin-left: 0px;
+            }
+            .currency-name{
+                font-size: 10px;
+                padding-left: 0;
+            }
+            .row-title{
+                font-size: 9px;
+            }
+        }

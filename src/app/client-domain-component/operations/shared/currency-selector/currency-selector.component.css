@@ -8,6 +8,10 @@ li{
     margin-right: 2px;
     outline: 0;
     margin-left: 7%;
+    font-size: 11px;
+    font-style: normal;
+    font-weight: 500;
+    
 
 }
 
@@ -23,5 +27,4 @@ li a{
     width: 100%;
     color: white;
     text-decoration: none !important;
-    font-size: 12px;
 }

@@ -11,11 +11,21 @@ const clientRoutes: Routes = [
     { path: '', component: ClientDomainComponent,
      children: [
         { path: '', redirectTo: 'login', pathMatch: 'full' },
-        { path: 'operations', loadChildren: () => OperationModule, canActivate: [AuthGuard] },
-        { path: 'login', loadChildren: () =>  LoginModule }
+        { path: 'operations', loadChildren: getOperationModule
+        , canActivate: [AuthGuard]
+     },
+        { path: 'login', loadChildren: getLoginModule }
     ]
    }
 ];
+
+export function getOperationModule() {
+    return OperationModule;
+}
+
+export function getLoginModule() {
+    return LoginModule;
+}
 
 @NgModule({
     imports: [RouterModule.forChild(clientRoutes)],
