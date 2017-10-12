@@ -33,7 +33,9 @@ export class PremiumFormComponent implements OnInit {
   chooseCurrencyB() {
      if (this.displayCurrencySelectorB === true) {
       this.displayCurrencySelectorB = false;
-     }else{
+     }else
+     // tslint:disable-next-line:one-line
+     {
       this.displayCurrencySelectorB = true;
      }
   }
@@ -43,6 +45,7 @@ export class PremiumFormComponent implements OnInit {
       this.displayCurrencySelectorA = false;
       console.log((this.displayCurrencySelectorA ));
      }
+      // tslint:disable-next-line:one-line
       else
       // tslint:disable-next-line:one-line
       {

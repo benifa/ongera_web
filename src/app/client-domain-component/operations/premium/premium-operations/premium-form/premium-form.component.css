@@ -83,19 +83,7 @@
 
   
   #column-1{
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
-    -ms-flex-direction: row;
-    flex-direction: row;
     width: 40%;
-    -webkit-box-pack: end;
-    -ms-flex-pack: end;
-    justify-content: flex-end;
-    margin-left: auto
-  
 }
 .void-column{
 width: 0%;
@@ -160,6 +148,8 @@ width: 0%;
     padding: 3px;
     font-style: italic;
     margin-top: 7px;
+    text-align:center;
+    align-self:middle;
 }
 .input-btn-maturity{
 
@@ -174,6 +164,8 @@ width: 0%;
     padding: 3px;
     font-style: italic;
     margin-left: -3%;
+    text-align:center;
+    align-self:middle;
 
 }
 .first-label{
@@ -199,6 +191,8 @@ width: 0%;
 .input-btn-click {
     background: #222b3a !important;
     color:  #EC7A40 !important;
+    text-align:center;
+    align-self:middle;
 }
 
 .void-btn{
@@ -218,3 +212,41 @@ width: 0%;
     
    
 }
+.compute-btn{
+    margin-top: 70px !important;
+    width: 110%;
+    border-radius: 11px;
+
+}
+
+.interest-rate-label{
+    margin-left: 72%;}
+
+
+    @media only screen and (max-width: 700px) {
+        
+            /* #column-1  {  
+                width: 40%;      
+            }
+            .void-column{
+            width: 0%;
+            } */
+            #label-column{
+                display: -webkit-box;
+                display: -ms-flexbox;
+                display: flex;
+                -webkit-box-orient: vertical;
+                -webkit-box-direction: normal;
+                -ms-flex-direction: column;
+                flex-direction: column;
+                width: 35%;
+                margin-left: 0px;
+            }
+            .currency-name{
+                font-size: 10px;
+                padding-left: 0;
+            }
+            .row-title{
+                font-size: 9px;
+            }
+        }

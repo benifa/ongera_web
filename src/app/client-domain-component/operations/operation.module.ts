@@ -14,6 +14,7 @@ import { CurrencySelectorComponent } from './shared/currency-selector/currency-s
 import { CurrenciesListDirectiveDirective } from './shared/currencies-list-directive.directive';
 import { OperationService } from './shared/operation.service';
 
+
 @NgModule({
     declarations: [
         OperationsComponent,

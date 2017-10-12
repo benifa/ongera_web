@@ -53,7 +53,7 @@
 
     <div id="column-2">
         <input [ngClass]="{'input-btn-click': customInputBtn.pricingDate}" (click)="inputBtnclicked('pricingDate')" type="" name="" class="input-btn-generic" />        
-        <input [ngClass]="{'input-btn-click': customInputBtn.interestRate}" (click)="inputBtnclicked('interestRate')" type="" name="" class="input-btn-generic" />
+        <input [ngClass]="{'input-btn-click': customInputBtn.interestRate}" (click)="inputBtnclicked('interestRate')" type="" name="" class="input-btn-generic interest-rate-label" />
         <input [ngClass]="{'input-btn-click': customInputBtn.forexRate}" (click)="inputBtnclicked('forexRate')" type="" name="" class="input-btn-generic" />
         <div id="maturity-time">
           <div id ="maturity-time-row-1">
@@ -76,6 +76,9 @@
         <input type="" name="InterestRate" class="void-btn" />
         <input type="" name="InterestRate" class="void-btn" />        
         <input [ngClass]="{'input-btn-click': customInputBtn.forexRateTwo}" (click)="inputBtnclicked('forexRateColumnTwo')" type="" name="" class="input-btn-generic" />
+        <input type="" name="InterestRate" class="void-btn" />        
+        <button class="feature-label expected-eprecition-label compute-btn">Compute</button>
+        
       </div>
     
   </form>
