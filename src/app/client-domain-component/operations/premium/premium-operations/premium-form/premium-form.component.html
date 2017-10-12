@@ -1,86 +1,129 @@
-
 <div class="operation-form">
   <div class="main-row">
-     <div class="row-title" >
-        <p>Choose your couple of currencies</p>
-     </div>
-     <div class="currency-name">
-        <p>Local Currency</p>
-        <div class="currencies">
-          <div class="currency-btn">
-            <button (click) = "chooseCurrencyA()" class="currency-picker-button">{{currencyA.symbol}}</button> 
-          </div>       
-          <div *ngIf="displayCurrencySelectorA">              
-              <div class = "currency-component"*ngFor="let currency of currencies" >
-                <currency-selector (click)="choosenCurrencyA(currency)" [currency]="currency"></currency-selector>
-              </div> 
-          </div>
-        </div> 
-      </div>
-      <div class="currency-name">
-        <p>Foreign Currency</p>  
-        <div class="currencies">
-          <div class="currency-btn"> 
-           <button   (click) = "chooseCurrencyB()"class="currency-picker-button">{{currencyB.symbol}}</button> 
+    <div class="row-title">
+      <p>Choose your couple of currencies</p>
+    </div>
+    <div class="currency-name">
+      <p>Local Currency</p>
+      <div class="currencies">
+        <div class="currency-btn">
+          <button (click)="chooseCurrencyA()" class="currency-picker-button">{{currencyA.symbol}}</button>
         </div>
-          <div *ngIf="displayCurrencySelectorB">
-            <div class = "currency-component"*ngFor="let currency of currencies" >
-              <currency-selector (click)="choosenCurrencyB(currency)"[currency]="currency"></currency-selector>
-            </div> 
+        <div *ngIf="displayCurrencySelectorA">
+          <div class="currency-component" *ngFor="let currency of currencies">
+            <currency-selector (click)="choosenCurrencyA(currency)" [currency]="currency"></currency-selector>
           </div>
-        </div> 
+        </div>
       </div>
     </div>
+    <div class="currency-name">
+      <p>Foreign Currency</p>
+      <div class="currencies">
+        <div class="currency-btn">
+          <button (click)="chooseCurrencyB()" class="currency-picker-button">{{currencyB.symbol}}</button>
+        </div>
+        <div *ngIf="displayCurrencySelectorB">
+          <div class="currency-component" *ngFor="let currency of currencies">
+            <currency-selector (click)="choosenCurrencyB(currency)" [currency]="currency"></currency-selector>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <div class="main-row">
-      <div class="row-title" id="row-title-spacing">
-          <p>Characterize each of your currencies</p>
-      </div>
+    <div class="row-title" id="row-title-spacing">
+      <p>Characterize each of your currencies</p>
+    </div>
   </div>
+
+
+
   <form class="main-form-row">
-    <div id="column-1">
-      <div class="void-column">
-
-      </div>
-      <div id ="label-column">
-        <p class="feature-label first-label">Pricing Date</p>          
-        <p class="feature-label ">Interest Rate</p>
-        <p class="feature-label">Forex Rate</p>
-        <p class="feature-label">Maturity Time</p>
-        <p class="feature-label expected-eprecition-label">Expected Depreciation</p>
-      </div>
-    </div>
 
 
-    <div id="column-2">
-        <input [ngClass]="{'input-btn-click': customInputBtn.pricingDate}" (click)="inputBtnclicked('pricingDate')" type="" name="" class="input-btn-generic" />        
-        <input [ngClass]="{'input-btn-click': customInputBtn.interestRate}" (click)="inputBtnclicked('interestRate')" type="" name="" class="input-btn-generic interest-rate-label" />
-        <input [ngClass]="{'input-btn-click': customInputBtn.forexRate}" (click)="inputBtnclicked('forexRate')" type="" name="" class="input-btn-generic" />
-        <div id="maturity-time">
-          <div id ="maturity-time-row-1">
-            <input [ngClass]="{'input-btn-click': customInputBtn.maturityTime.thirty }" (click)="inputBtnclicked('maturityTime30')" type="" name="" class="input-btn-maturity" />
-            <input [ngClass]="{'input-btn-click': customInputBtn.maturityTime.sixty }" (click)="inputBtnclicked('maturityTime60')" type="" name="" class="input-btn-maturity"  />
-            <input [ngClass]="{'input-btn-click': customInputBtn.maturityTime.oneHundredEighty }" (click)="inputBtnclicked('maturityTime180')" type="" name="" class="input-btn-maturity"  />
-          </div>
-           <div id ="maturity-time-row-2">
-            <input [ngClass]="{'input-btn-click': customInputBtn.maturityTime.ninety }" (click)="inputBtnclicked('maturityTime90')" type="" name="" class="input-btn-maturity"/>
-            <input [ngClass]="{'input-btn-click': customInputBtn.maturityTime.threeHundredSixty }" (click)="inputBtnclicked('maturityTime360')" type="" name="" class="input-btn-maturity"/>
-            <input [ngClass]="{'input-btn-click': customInputBtn.maturityTime.typeBtn }" (click)="inputBtnclicked('maturityTimeType')" type="" name="" class="input-btn-maturity"/> 
-            
-          </div>  
-      </div>
-        <input [ngClass]="{'input-btn-click': customInputBtn.typeBtn }" (click)="inputBtnclicked('typeBtn')" type="" name="" class="input-btn-generic"  />
-        
-    </div>
 
-    <div id="column-3"> 
-        <input type="" name="InterestRate" class="void-btn" />
-        <input type="" name="InterestRate" class="void-btn" />        
-        <input [ngClass]="{'input-btn-click': customInputBtn.forexRateTwo}" (click)="inputBtnclicked('forexRateColumnTwo')" type="" name="" class="input-btn-generic" />
-        <input type="" name="InterestRate" class="void-btn" />        
-        <button class="feature-label expected-eprecition-label compute-btn">Compute</button>
-        
-      </div>
-    
+
   </form>
+
+
+  <div class="row vert-align">
+    <div class="col-xs-3 center-vert">
+      <p class="feature-label first-label">Pricing Date</p>
+    </div>
+
+    <div class="col-xs-2">
+      <input [ngClass]="{'input-btn-click': customInputBtn.pricingDate}" (click)="inputBtnclicked('pricingDate')" type="" name=""
+        class="input-btn-generic" />
+    </div>
+
+    <div class="col-xs-5 col-xs-offset-1">
+      <div class="datepicker-container">
+        <ng-datepicker [(ngModel)]="date" data-container="body"></ng-datepicker>
+      </div>
+    </div>
+  </div>
+
+  <div class="row vert-align">
+    <div class="col-xs-3 center-vert">
+      <p class="feature-label first-label">Interest rate</p>
+    </div>
+
+    <div class="col-xs-2">
+      <input [ngClass]="{'input-btn-click': customInputBtn.interestRate}" (click)="inputBtnclicked('interestRate')" type="" name=""
+        class="input-btn-generic" />
+    </div>
+
+    <div class="col-xs-2 col-xs-offset-4">
+      <input [ngClass]="{'input-btn-click': customInputBtn.interestRate}" (click)="inputBtnclicked('interestRate')" type="" name=""
+        class="input-btn-generic" />
+    </div>
+  </div>
+
+  <div class="row vert-align">
+    <div class="col-xs-3 center-vert">
+      <p class="feature-label ">Forex rate</p>
+    </div>
+
+    <div class="col-xs-8">
+      <input [ngClass]="{'input-btn-click': customInputBtn.forexRate}" (click)="inputBtnclicked('forexRate')" type="" name="" class="input-btn-generic"
+      />
+    </div>
+
+  </div>
+
+  <div class="row vert-align">
+    <div class="col-xs-3 center-vert">
+      <p class="feature-label ">Maturity time</p>
+    </div>
+
+    <div class="col-xs-4">
+        <div id="maturity-time">
+            <div id="maturity-time-row-1">
+              <input [ngClass]="{'input-btn-click': customInputBtn.maturityTime.thirty }" (click)="inputBtnclicked('maturityTime30')" type=""
+                name="" class="input-btn-maturity" />
+              <input [ngClass]="{'input-btn-click': customInputBtn.maturityTime.sixty }" (click)="inputBtnclicked('maturityTime60')" type=""
+                name="" class="input-btn-maturity" />
+              <input [ngClass]="{'input-btn-click': customInputBtn.maturityTime.oneHundredEighty }" (click)="inputBtnclicked('maturityTime180')"
+                type="" name="" class="input-btn-maturity" />
+            </div>
+            <div id="maturity-time-row-2">
+              <input [ngClass]="{'input-btn-click': customInputBtn.maturityTime.ninety }" (click)="inputBtnclicked('maturityTime90')" type=""
+                name="" class="input-btn-maturity" />
+              <input [ngClass]="{'input-btn-click': customInputBtn.maturityTime.threeHundredSixty }" (click)="inputBtnclicked('maturityTime360')"
+                type="" name="" class="input-btn-maturity" />
+              <input [ngClass]="{'input-btn-click': customInputBtn.maturityTime.typeBtn }" (click)="inputBtnclicked('maturityTimeType')"
+                type="" name="" class="input-btn-maturity" />
+    
+            </div>
+          </div>
+    </div>
+
+    <div class="col-xs-3 col-xs-offset-1">
+        <div class="datepicker-container">
+          <ng-datepicker [(ngModel)]="date" data-container="body"></ng-datepicker>
+        </div>
+      </div>
+
+  </div>
 </div>

@@ -16,10 +16,10 @@ export class PremiumFormComponent implements OnInit {
   displayCurrencySelectorB: boolean;
   displayCurrencySelectorA: boolean;
   customInputBtn: ICustomInputBtn;
+  date: Date;
 
   constructor( ) {
-
-
+    this.date = new Date();
    }
 
   ngOnInit() {

@@ -24,8 +24,7 @@
     "angular2-moment": "^1.7.0",
     "bootstrap": "^3.3.7",
     "core-js": "^2.4.1",
-    "mydatepicker": "github:kekeh/mydatepicker",
-    "ng2-date-picker": "^2.5.0-beta",
+    "ng2-datepicker": "^2.1.2",
     "rxjs": "^5.1.0",
     "zone.js": "^0.8.4"
   },

@@ -25,6 +25,7 @@ import { trigger, state, style, transition, animate } from '@angular/animations'
 export class LoginSuccessComponent implements OnInit {
   state = 'normal';
   currentUser: User;
+  date: Date;
 
   constructor(private authService: AuthService, private router: Router) { }
 
