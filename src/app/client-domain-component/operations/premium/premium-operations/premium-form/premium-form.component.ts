@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {OperationService} from '../../../shared/operation.service';
 import {ICurrency} from '../../../shared/currency-selector/currency.model';
 import {ICustomInputBtn} from '../../../shared/currency-selector/customInputBtn.model';
+
 @Component({
   selector: 'app-premium-form',
   templateUrl: './premium-form.component.html',
@@ -9,6 +10,7 @@ import {ICustomInputBtn} from '../../../shared/currency-selector/customInputBtn.
 })
 export class PremiumFormComponent implements OnInit {
   currencies: ICurrency[];
+
   currencyA: any;
   currencyB: any;
   displayCurrencySelectorB: boolean;
@@ -31,10 +33,13 @@ export class PremiumFormComponent implements OnInit {
   }
 
 
+
   chooseCurrencyB() {
      if (this.displayCurrencySelectorB === true) {
       this.displayCurrencySelectorB = false;
-     }else{
+     }else
+     // tslint:disable-next-line:one-line
+     {
       this.displayCurrencySelectorB = true;
      }
   }
@@ -44,6 +49,7 @@ export class PremiumFormComponent implements OnInit {
       this.displayCurrencySelectorA = false;
       console.log((this.displayCurrencySelectorA ));
      }
+      // tslint:disable-next-line:one-line
       else
       // tslint:disable-next-line:one-line
       {
@@ -173,6 +179,4 @@ inputBtnclicked(btnName) {
  name: 'European euro'
    }
 ];
-
-
 }
