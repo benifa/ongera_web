@@ -2,9 +2,11 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { Http, Response, RequestOptions, Headers } from '@angular/http';
 import { Injectable } from '@angular/core';
 import { User } from './user.model';
+import 'rxjs/Rx';
 
 @Injectable()
 export class AuthService {
+    BASE_URL = 'https://ongera-api.herokuapp.com/';
     clientId: string;
     token: String;
     user: User;
@@ -18,7 +20,7 @@ export class AuthService {
 
     loginUser(email: string, password: string) {
         this.isLoading = true;
-        this.http.post('https://ongera-api.herokuapp.com/' + this.clientId + '/login', {
+        this.http.post(this.BASE_URL + this.clientId + '/login', {
             'username': email,
             'password': password
         })
@@ -39,10 +41,32 @@ export class AuthService {
 
     }
 
+    getUserInformation() {
+        this.isLoading = true;
+        this.http.get(this.BASE_URL + this.clientId + '/user')
+        .map(
+            (response: Response) => {
+                const data = response.json();
+                return data;
+            })
+        .subscribe(
+            (response: Response) => {
+                if (response['ok']) {
+                    this.isLoading = false;
+                    this.user = response.json();
+                }
+            },
+            (error: Error) => {
+                this.isLoading = false;
+            }
+            );
+
+    }
+
     logout() {
         if (this.token) {
             this.isLoading = true;
-            this.http.post('https://ongera-api.herokuapp.com/logout', null, this.getHeaders())
+            this.http.post(this.BASE_URL + 'logout', null, this.getHeaders())
                 .subscribe(
                 (response: Response) => {
                     if (response['ok']) {
