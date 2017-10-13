@@ -14,6 +14,13 @@ import { PremiumResultsComponent } from './premium/premium-operations/premium-re
 import { CurrencySelectorComponent } from './shared/currency-selector/currency-selector.component';
 import { CurrenciesListDirectiveDirective } from './shared/currencies-list-directive.directive';
 import { OperationService } from './shared/operation.service';
+import {MatDatepickerModule} from '@angular/material';
+import {MatNativeDateModule} from '@angular/material';
+// import {MdInputModule} from '@angular/material';
+// import { AppMaterialModules } from './material.module';
+import { MatFormFieldModule } from '@angular/material';
+import { MatInputModule } from '@angular/material';
+
 
 
 @NgModule({
@@ -32,6 +39,10 @@ import { OperationService } from './shared/operation.service';
         ReactiveFormsModule,
         FormsModule,
         OperationRoutingModule,
+        MatDatepickerModule,
+        MatInputModule,
+        MatNativeDateModule,
+        MatFormFieldModule,
         NgDatepickerModule
     ]
 })

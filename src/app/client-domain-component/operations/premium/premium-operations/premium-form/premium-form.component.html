@@ -98,32 +98,40 @@
     </div>
 
     <div class="col-xs-4">
-        <div id="maturity-time">
-            <div id="maturity-time-row-1">
-              <input [ngClass]="{'input-btn-click': customInputBtn.maturityTime.thirty }" (click)="inputBtnclicked('maturityTime30')" type=""
-                name="" class="input-btn-maturity" />
-              <input [ngClass]="{'input-btn-click': customInputBtn.maturityTime.sixty }" (click)="inputBtnclicked('maturityTime60')" type=""
-                name="" class="input-btn-maturity" />
-              <input [ngClass]="{'input-btn-click': customInputBtn.maturityTime.oneHundredEighty }" (click)="inputBtnclicked('maturityTime180')"
-                type="" name="" class="input-btn-maturity" />
-            </div>
-            <div id="maturity-time-row-2">
-              <input [ngClass]="{'input-btn-click': customInputBtn.maturityTime.ninety }" (click)="inputBtnclicked('maturityTime90')" type=""
-                name="" class="input-btn-maturity" />
-              <input [ngClass]="{'input-btn-click': customInputBtn.maturityTime.threeHundredSixty }" (click)="inputBtnclicked('maturityTime360')"
-                type="" name="" class="input-btn-maturity" />
-              <input [ngClass]="{'input-btn-click': customInputBtn.maturityTime.typeBtn }" (click)="inputBtnclicked('maturityTimeType')"
-                type="" name="" class="input-btn-maturity" />
-    
-            </div>
-          </div>
+      <div id="maturity-time">
+        <div id="maturity-time-row-1">
+          <input [ngClass]="{'input-btn-click': customInputBtn.maturityTime.thirty }" (click)="inputBtnclicked('maturityTime30')" type=""
+            name="" class="input-btn-maturity" />
+          <input [ngClass]="{'input-btn-click': customInputBtn.maturityTime.sixty }" (click)="inputBtnclicked('maturityTime60')" type=""
+            name="" class="input-btn-maturity" />
+          <input [ngClass]="{'input-btn-click': customInputBtn.maturityTime.oneHundredEighty }" (click)="inputBtnclicked('maturityTime180')"
+            type="" name="" class="input-btn-maturity" />
+        </div>
+        <div id="maturity-time-row-2">
+          <input [ngClass]="{'input-btn-click': customInputBtn.maturityTime.ninety }" (click)="inputBtnclicked('maturityTime90')" type=""
+            name="" class="input-btn-maturity" />
+          <input [ngClass]="{'input-btn-click': customInputBtn.maturityTime.threeHundredSixty }" (click)="inputBtnclicked('maturityTime360')"
+            type="" name="" class="input-btn-maturity" />
+          <input [ngClass]="{'input-btn-click': customInputBtn.maturityTime.typeBtn }" (click)="inputBtnclicked('maturityTimeType')"
+            type="" name="" class="input-btn-maturity" />
+
+        </div>
+      </div>
     </div>
 
     <div class="col-xs-3 col-xs-offset-1">
-        <div class="datepicker-container">
-          <ng-datepicker [(ngModel)]="date" data-container="body"></ng-datepicker>
-        </div>
+      <div class="datepicker-container">
+        <ng-datepicker [(ngModel)]="date" data-container="body"></ng-datepicker>
       </div>
+    </div>
 
   </div>
+
+  <mat-form-field>
+    <input matInput [matDatepicker]="picker" placeholder="Choose a date">
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+  </mat-form-field>
+
+
 </div>
