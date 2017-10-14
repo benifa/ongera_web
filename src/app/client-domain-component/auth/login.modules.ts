@@ -7,7 +7,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
-
+import { MatCardModule, MatButtonModule } from '@angular/material';
 
 @NgModule({
     declarations: [
@@ -19,6 +19,8 @@ import { FormsModule } from '@angular/forms';
         CommonModule,
         ReactiveFormsModule,
         FormsModule,
+        MatCardModule,
+        MatButtonModule,
         LoginRoutingModule
     ]
 })

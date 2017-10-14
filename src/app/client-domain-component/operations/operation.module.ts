@@ -16,10 +16,8 @@ import { CurrenciesListDirectiveDirective } from './shared/currencies-list-direc
 import { OperationService } from './shared/operation.service';
 import {MatDatepickerModule} from '@angular/material';
 import {MatNativeDateModule} from '@angular/material';
-// import {MdInputModule} from '@angular/material';
-// import { AppMaterialModules } from './material.module';
 import { MatFormFieldModule } from '@angular/material';
-import { MatInputModule } from '@angular/material';
+import { MatInputModule, MatButtonModule, MatCardModule, MatMenuModule, MatToolbarModule, MatIconModule } from '@angular/material';
 
 
 
@@ -43,7 +41,8 @@ import { MatInputModule } from '@angular/material';
         MatInputModule,
         MatNativeDateModule,
         MatFormFieldModule,
-        NgDatepickerModule
+        NgDatepickerModule,
+        MatInputModule, MatButtonModule, MatCardModule, MatMenuModule, MatToolbarModule, MatIconModule
     ]
 })
 

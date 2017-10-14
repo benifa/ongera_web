@@ -4,6 +4,9 @@
   margin: 0 auto;
   max-width: 900px; 
 }
+.mat-card {
+  background-color: #212f3f;
+}
 
 .jumbotron {
   background-color: #212f3f;
