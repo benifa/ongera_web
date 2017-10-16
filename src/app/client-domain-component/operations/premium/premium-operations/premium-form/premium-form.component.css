@@ -279,9 +279,12 @@ width: 0%;
     box-shadow: 0 1px 4px 0 rgba(0,0,0,.08);
     border: 1px solid #dfe3e9;
     z-index: 99 !important;
+    margin-left: 35%;
+    
     
 }
 .datepicker-maturityTime{
     z-index: 5 !important;
     margin-bottom: -245px !important;
+    margin-left: 0% !important;
 }
