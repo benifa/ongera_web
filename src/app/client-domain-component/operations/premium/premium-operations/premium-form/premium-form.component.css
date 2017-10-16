@@ -231,6 +231,7 @@ width: 0%;
     align-items: center;
     justify-content: center;
     margin: 2px -5px;
+    position: relative;
 }
 .compute-btn{
     margin-top: 70px !important;
@@ -270,3 +271,17 @@ width: 0%;
                 font-size: 9px;
             }
         }
+.datepicker-container{
+    position: absolute;
+    background: #F5B78D;
+    /* top: 40px; */
+    left: 0;
+    box-shadow: 0 1px 4px 0 rgba(0,0,0,.08);
+    border: 1px solid #dfe3e9;
+    z-index: 99 !important;
+    
+}
+.datepicker-maturityTime{
+    z-index: 5 !important;
+    margin-bottom: -245px !important;
+}
