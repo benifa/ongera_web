@@ -1,26 +1,34 @@
 <div class="login-form">
   <div class="row form">
-    <img src="../assets/logoongera.png" class="img-responsive center-block"  *ngIf="!authService.isAuthenticating()" alt="Responsive image">
-    <mat-card flex="flex" flex-gt-sm="50" flex-gt-md="33">
+    <div class="col-xs-12 text-center">
+      <img src="../assets/logoongera.png" class="img-responsive" *ngIf="!authService.isAuthenticating()" alt="Responsive image">
+    </div>
+  </div>
+  <mat-card *ngIf="!authService.isAuthenticating()">
     <mat-card-content>
-      <form (ngSubmit)="onSignup(f)" #f="ngForm" *ngIf="!authService.isAuthenticating()" >
-        
+      <form (ngSubmit)="onSignup(f)" #f="ngForm">
         <div class="form-group">
-          <label for="email"> <span class="white">Username:</span></label>
+          <label for="email">
+            <span class="white">Username:</span>
+          </label>
           <input type="email" id="email" name="email" ngModel class="form-control" required>
         </div>
         <div class="form-group">
-          <label for="password"><span class="white">Password:</span></label>
+          <label for="password">
+            <span class="white">Password:</span>
+          </label>
           <input type="password" id="password" name="password" ngModel class="form-control" required>
         </div>
 
-        <div class="col-sm-offset-2 col-sm-8" align="center">
-            <button mat-raised-button [disabled]="!f.valid" type="submit" class="btn btn-primary btn-lg round">LOGIN</button>
+        <div class="col-sm-12 text-center" align="center">
+          <button mat-raised-button [disabled]="!f.valid" type="submit" class="btn btn-primary btn-lg round">LOGIN</button>
         </div>
       </form>
-   
-  </mat-card-content>
-</mat-card>
-    <img  *ngIf="authService.isAuthenticating()" src="../assets/loading.png" class="img-responsive center-block" alt="Responsive image">
+
+    </mat-card-content>
+  </mat-card>
+  <div class="col-xs-12 text-center">
+      <img *ngIf="authService.isAuthenticating()" src="../assets/loading.png" class="img-responsive" alt="Responsive image">
   </div>
+ 
 </div>
