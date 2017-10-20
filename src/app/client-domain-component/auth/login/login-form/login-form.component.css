@@ -1,13 +1,13 @@
-/* @import url('//ajax.googleapis.com/ajax/libs/angular_material/0.8.3/angular-material.min.css'); */
+@import url('//ajax.googleapis.com/ajax/libs/angular_material/0.8.3/angular-material.min.css');
 .login-form {
   width: 400px;
   margin: 0 auto;
   max-width: 900px; 
 }
+
 .mat-card {
   background-color: #212f3f;
 }
-
 
 .btn-lg.round:active {
   background: #32A6CC;
@@ -21,7 +21,7 @@
   font-family: Cambria, Cochin, Georgia, Times, Times New Roman, serif
 }
 
-.btn-primary:enabled:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open>.dropdown-toggle.btn-primary {
+.btn-lg:enabled:hover, .btn-lg:focus, .btn-lg:active, .btn-lg.active, .open>.dropdown-toggle.btn-primary {
     color: #fff;
     background-color: #db692b;
 }
@@ -34,7 +34,4 @@ input.ng-invalid.ng-touched{
  
 label>span.white {
   color: #ffffff;
-}
-.img-responsive {
-  display: inline-block;
 }

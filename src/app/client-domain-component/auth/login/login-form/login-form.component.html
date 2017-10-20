@@ -1,11 +1,11 @@
 <div class="login-form">
   <div class="row form">
-    <div class="col-xs-12 text-center">
+      <img src="../assets/logoongera.png" class="img-responsive center-block"  *ngIf="!authService.isAuthenticating()" alt="Responsive image">
+    <!-- <div class="col-xs-12 text-center">
       <img src="../assets/logoongera.png" class="img-responsive" *ngIf="!authService.isAuthenticating()" alt="Responsive image">
-    </div>
-  </div>
+    </div> -->
+  <!-- </div> -->
   <mat-card *ngIf="!authService.isAuthenticating()">
-    <mat-card-content>
       <form (ngSubmit)="onSignup(f)" #f="ngForm">
         <div class="form-group">
           <label for="email">
@@ -20,12 +20,12 @@
           <input type="password" id="password" name="password" ngModel class="form-control" required>
         </div>
 
-        <div class="col-sm-12 text-center" align="center">
-          <button mat-raised-button [disabled]="!f.valid" type="submit" class="btn btn-primary btn-lg round">LOGIN</button>
+        <div  align="center">
+          <button mat-raised-button [disabled]="!f.valid" type="submit" class="btn-lg round">LOGIN</button>
         </div>
       </form>
 
-    </mat-card-content>
+
   </mat-card>
   <div class="col-xs-12 text-center">
       <img *ngIf="authService.isAuthenticating()" src="../assets/loading.png" class="img-responsive" alt="Responsive image">
