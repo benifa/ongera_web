@@ -1,9 +1,30 @@
  .premium {
-     margin-top: 4px;
-    /* width: 100%;
-    margin: 0px;
+    display: -webkit-box;
+    display: flex;
+ }
+ .operation {
     position: absolute;
-    top: 16%;
-    bottom: 0;
-    margin: 0px; */
+    bottom:0;
+    left:0;
+    right:0;
+    top:200px;
+  }
+
+  .content{
+    flex: 1 1 auto;     
+    overflow-y: auto;     
+  }
+
+  .inner-sidenav-content {
+    margin-left: 240px;
+    overflow: auto;
+    position: top;
+    bottom:0;
+    right:0;
+    margin: 10px;
+}
+mat-sidenav {
+    background-color: rgba(228, 228, 228, 0.35);
+    color: rgba(0, 0, 0, 0.87);
+    min-width:200px;
 }

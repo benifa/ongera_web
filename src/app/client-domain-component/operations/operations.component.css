@@ -1,11 +1,38 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  *:after,
+  *:before{
+    box-sizing: border-box;
+  }
+
+  .content{
+    flex: 1 1 auto;  
+    overflow-y: auto;     
+  }
+
+  .header{
+    flex: 0 0 auto;  
+    background: #aaa;
+  }
+
 .operations-parent {
-    min-height: 100%;
-    margin: 0px;
-    width: 100%;
-    position: relative;
-    height: auto;
-    overflow: scroll;
+    display: flex;
+    flex-direction: column;            
+    height: 100vh;
+    overflow: hidden;
 }
+
+#sidenav  {
+    overflow: auto;
+    position: absolute;
+    bottom:0;
+    left:0;
+    right:0;
+    top:0;
+  }
 
 .img-responsive {
     position: absolute;
@@ -14,4 +41,13 @@
     left: 0;
     right: 0;
     bottom: 0;
+}
+
+.inner-sidenav-content {
+    /* overflow: auto;
+    position: top;
+    bottom:0;
+    left:0;
+    right:0;
+    margin: 10px; */
 }

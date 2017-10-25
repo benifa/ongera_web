@@ -1,9 +1,22 @@
-<div class="row operations-parent">
-  <div *ngIf="!logout">
-    <app-user-summary></app-user-summary>
-    <app-premium></app-premium>
-  </div>
+<div class="operations-parent">
+  <!-- <div *ngIf="!logout"> -->
+  
+      <!-- <app-user-summary></app-user-summary> -->
+
+ <!-- <app-premium></app-premium> -->
+    <!-- <div class="content">
+        <app-premium-operations></app-premium-operations>
+    </div> -->
+
+    <div class="header">
+       <app-user-summary></app-user-summary>
+      </div>
+    <div class="content">
+        <!-- content goes here-->
+        <app-premium></app-premium>
+      </div>
 
   <!-- (@CurveState.done)="animationDone($event) -->
-  <img [@LogoutFadeState]="state" (@LogoutFadeState.done)="animateLogout($event)"  *ngIf="logout" src="../assets/loading.png" class="img-responsive center-block" alt="Responsive image">
+  <img [@LogoutFadeState]="state" (@LogoutFadeState.done)="animateLogout($event)" *ngIf="logout" src="../assets/loading.png"
+    class="img-responsive center-block" alt="Responsive image">
 </div>

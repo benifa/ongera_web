@@ -20,14 +20,13 @@
     margin-top: 5px;
 } 
 
-
 .side-action{
-    /* border: 2px solid  #DB6728;  
-    min-height: 20%;  
-    margin: 0px; */
+    width: 240px;
+    box-shadow: 3px 0 6px rgba(0,0,0,.24);
+    height: 100%;
 }
 
-
+/* 
 @media (min-width: 1200px) { 
     .side-action{ 
         min-height: 100%;  
@@ -39,5 +38,5 @@
         width: 100%;
     } 
 
-}
+} */
 
