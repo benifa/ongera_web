@@ -1,28 +1,37 @@
-*{
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-  }
-  *:after,
-  *:before{
-    box-sizing: border-box;
+  operations-parent>content {
+    -webkit-box-flex: 1;
+    flex: 1 1 auto;
   }
 
+  operations-parent>:last-child {
+    overflow-y: auto;
+  }
   .content{
-    flex: 1 1 auto;  
-    overflow-y: auto;     
+   overflow-y: scroll;
+   display: flex;
+   height: 100%;
+   position: relative;
+   flex-direction: row column;
+   -webkit-box-direction: normal;
   }
 
   .header{
-    flex: 0 0 auto;  
-    background: #aaa;
+    position: relative;
+    z-index: 10;
+    -webkit-box-direction: normal;
   }
 
 .operations-parent {
+
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
     display: flex;
-    flex-direction: column;            
-    height: 100vh;
-    overflow: hidden;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    flex-direction: column;
 }
 
 #sidenav  {
@@ -41,13 +50,4 @@
     left: 0;
     right: 0;
     bottom: 0;
-}
-
-.inner-sidenav-content {
-    /* overflow: auto;
-    position: top;
-    bottom:0;
-    left:0;
-    right:0;
-    margin: 10px; */
 }
