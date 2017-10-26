@@ -24,7 +24,6 @@
     display: flex;
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
-    background: greenyellow;
     flex-direction: column;
 }
 
