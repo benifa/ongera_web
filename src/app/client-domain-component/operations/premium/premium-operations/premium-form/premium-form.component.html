@@ -101,19 +101,19 @@
       <div id="maturity-time">
         <div id="maturity-time-row-1">
           <input [ngClass]="{'input-btn-click': customInputBtn.maturityTime.thirty }" (click)="inputBtnclicked('maturityTime30')" type=""
-            name="" class="input-btn-maturity" />
+            name="" class="input-btn-maturity" value="30"/>
           <input [ngClass]="{'input-btn-click': customInputBtn.maturityTime.sixty }" (click)="inputBtnclicked('maturityTime60')" type=""
-            name="" class="input-btn-maturity" />
+            name="" class="input-btn-maturity" value="60" />
           <input [ngClass]="{'input-btn-click': customInputBtn.maturityTime.oneHundredEighty }" (click)="inputBtnclicked('maturityTime180')"
-            type="" name="" class="input-btn-maturity" />
+            type="" name="" class="input-btn-maturity" value="180" />
         </div>
         <div id="maturity-time-row-2">
           <input [ngClass]="{'input-btn-click': customInputBtn.maturityTime.ninety }" (click)="inputBtnclicked('maturityTime90')" type=""
-            name="" class="input-btn-maturity" />
+            name="" class="input-btn-maturity" value="90" />
           <input [ngClass]="{'input-btn-click': customInputBtn.maturityTime.threeHundredSixty }" (click)="inputBtnclicked('maturityTime360')"
-            type="" name="" class="input-btn-maturity" />
+            type="" name="" class="input-btn-maturity" value="360"/>
           <input [ngClass]="{'input-btn-click': customInputBtn.maturityTime.typeBtn }" (click)="inputBtnclicked('maturityTimeType')"
-            type="" name="" class="input-btn-maturity" />
+            type="" name="" class="input-btn-maturity" value="type" />
 
         </div>
       </div>
@@ -123,8 +123,7 @@
       <div class="datepicker-container datepicker-maturityTime">
         <ng-datepicker [(ngModel)]="date" data-container="body"></ng-datepicker>
       </div>
-      
-      <input type="" name="InterestRate" class="void-btn" />              
+
       <button class="feature-label expected-eprecition-label compute-btn">Compute</button>
       
     </div>
