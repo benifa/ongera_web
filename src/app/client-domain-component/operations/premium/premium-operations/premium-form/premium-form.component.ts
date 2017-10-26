@@ -1,7 +1,9 @@
+import { AuthService } from './../../../../auth/auth.service';
 import { Component, OnInit } from '@angular/core';
 import {OperationService} from '../../../shared/operation.service';
 import {ICurrency} from '../../../shared/currency-selector/currency.model';
 import {ICustomInputBtn} from '../../../shared/currency-selector/customInputBtn.model';
+import * as moment from 'moment';
 
 @Component({
   selector: 'app-premium-form',
@@ -17,8 +19,9 @@ export class PremiumFormComponent implements OnInit {
   displayCurrencySelectorA: boolean;
   customInputBtn: ICustomInputBtn;
   date: Date;
+  forexRate: string;
 
-  constructor( ) {
+  constructor( private authService: AuthService) {
     this.date = new Date();
    }
 
@@ -31,8 +34,6 @@ export class PremiumFormComponent implements OnInit {
     this.displayCurrencySelectorA = false;
 
   }
-
-
 
   chooseCurrencyB() {
      if (this.displayCurrencySelectorB === true) {
@@ -58,14 +59,16 @@ export class PremiumFormComponent implements OnInit {
 }
 
 
-choosenCurrencyB(choosenCurrencyB){
+choosenCurrencyB(choosenCurrencyB) {
   this.currencyB = choosenCurrencyB;
   this.displayCurrencySelectorB = false;
+  this.updateForexRateIfApplicable();
 }
 
-choosenCurrencyA(choosenCurrencyA){
+choosenCurrencyA(choosenCurrencyA) {
   this.currencyA = choosenCurrencyA;
   this.displayCurrencySelectorA = false;
+  this.updateForexRateIfApplicable();
 }
 
 // tslint:disable-next-line:member-ordering
@@ -175,8 +178,21 @@ inputBtnclicked(btnName) {
  name: 'Uganda Shillings'
    },
        {
- symbol: 'Euro',
+ symbol: 'Eur',
  name: 'European euro'
    }
 ];
+
+updateForexRateIfApplicable () {
+  if (this.currencyA && this.currencyB && this.date) {
+     this.authService.getForexRate(moment(this.date).format('DD-MM-YYYY'), this.currencyA['symbol'], this.currencyB['symbol'])
+     .subscribe(
+       (forexRate: any) => (
+         this.forexRate = forexRate['forex rate at pricing date'],
+         this.customInputBtn.forexRate = forexRate['forex rate at pricing date']),
+         (error) => console.log(error)
+     );
+  }
+}
+
 }

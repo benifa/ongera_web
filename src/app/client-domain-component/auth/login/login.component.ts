@@ -1,6 +1,6 @@
+import { AuthService } from './../auth.service';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
-import { AuthService } from '../../auth/auth.service';
 
 @Component({
   selector: 'app-login',

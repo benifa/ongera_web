@@ -1,6 +1,6 @@
-import { User } from './../../user.model';
-import { Router } from '@angular/router';
 import { AuthService } from './../../auth.service';
+import { User } from './../../../user.model';
+import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { trigger, state, style, transition, animate } from '@angular/animations';
 

@@ -37,16 +37,6 @@
     </div>
   </div>
 
-
-
-  <form class="main-form-row">
-
-
-
-
-  </form>
-
-
   <div class="row vert-align">
     <div class="col-xs-3 center-vert">
       <p class="feature-label first-label">Pricing Date</p>
@@ -86,7 +76,7 @@
     </div>
 
     <div class="col-xs-8">
-      <input [ngClass]="{'input-btn-click': customInputBtn.forexRate}" (click)="inputBtnclicked('forexRate')" type="" name="" class="input-btn-generic"
+      <input [(ngModel)]="forexRate" [ngClass]="{'input-btn-click': customInputBtn.forexRate}" (click)="inputBtnclicked('forexRate')" type="" name="" class="input-btn-generic"
       />
     </div>
 
@@ -123,13 +113,26 @@
       <div class="datepicker-container datepicker-maturityTime">
         <ng-datepicker [(ngModel)]="date" data-container="body"></ng-datepicker>
       </div>
-      
-      <input type="" name="InterestRate" class="void-btn" />              
-      <button class="feature-label expected-eprecition-label compute-btn">Compute</button>
-      
     </div>
 
-  </div>
+  </div> 
+
+  <div class="row vert-align" style="margin-top:20px;">
+      <div class="col-xs-3 center-vert">
+        <p class="feature-label first-label">Depreciation</p>
+      </div>
+  
+      <div class="col-xs-2">
+        <input [ngClass]="{'input-btn-click': customInputBtn.pricingDate}" (click)="inputBtnclicked('pricingDate')" type="type" name=""
+          class="input-btn-generic" />
+      </div>
+  
+      <div class="col-xs-5 col-xs-offset-2">
+        <button class="z-depth-1 ongera-button" color="primary" mat-button>
+          HIT HERE AT THE END TO COMPUTE YOUR PREMIUMS...
+        </button>
+      </div>
+    </div>
 
   <!-- <mat-form-field>
     <input matInput [matDatepicker]="picker" placeholder="Choose a date">

@@ -1,6 +1,6 @@
+import { AuthService } from './../auth/auth.service';
 import { Router } from '@angular/router';
 import { PlatformLocation } from '@angular/common';
-import { AuthService } from './../auth/auth.service';
 import { Component, OnInit, HostListener } from '@angular/core';
 import { trigger, state, style, transition, animate } from '@angular/animations';
 

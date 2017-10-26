@@ -1,7 +1,7 @@
+import { User } from './../user.model';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Http, Response, RequestOptions, Headers } from '@angular/http';
 import { Injectable } from '@angular/core';
-import { User } from './user.model';
 import 'rxjs/Rx';
 
 @Injectable()
@@ -112,4 +112,15 @@ export class AuthService {
         headersParams.append('Authorization', 'Bearer ' + this.token);
         return new RequestOptions({ headers: headersParams });
     }
+
+    getForexRate(date: string, local: string, foreign: string ) {
+        return this.http.get(this.BASE_URL + 'forexrate/bnr/' + date + '/' + foreign + local, this.getHeaders())
+        .map(
+            (response: Response) => {
+                const data = response.json();
+                return data;
+            });
+    }
+
+
 }
