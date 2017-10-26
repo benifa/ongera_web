@@ -1,8 +1,7 @@
-.jumbotron {
-    padding: 4px;
+.mat-card {
+    padding: 10px;
     background-color: #212f3f;
     border-radius: 12px;
-    border: 2px solid #db692b;
   }
 
   .bg-text-view {
@@ -17,11 +16,25 @@
     text-align: center;
   }
 
-  h4 {
+  .ongera-button {
+    background-color: #fae5d7; 
+    padding: 4px;
+    font-size: 13px;
+    font-style: italic;
+    font-weight: bold;
+    height: auto;
+    border-radius: 4px;
+    text-align: center;
+  }
+
+  .mat-card-title {
       text-align: center;
-      font-size: 13px;
+      font-size: 14px;
       color: white;
   } 
+  .z-depth-3 {
+    box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.14), 0 1px 18px 0 rgba(0, 0, 0, 0.12), 0 3px 5px -1px rgba(0, 0, 0, 0.3);
+  }
 
   .input-btn-generic{
     border-radius: 40px;
