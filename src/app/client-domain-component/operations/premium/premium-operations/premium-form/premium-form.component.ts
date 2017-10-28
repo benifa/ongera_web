@@ -62,13 +62,13 @@ export class PremiumFormComponent implements OnInit {
 choosenCurrencyB(choosenCurrencyB) {
   this.currencyB = choosenCurrencyB;
   this.displayCurrencySelectorB = false;
-  this.updateForexRateIfApplicable();
+  this.updateForexRateIfApplicable(this.date);
 }
 
 choosenCurrencyA(choosenCurrencyA) {
   this.currencyA = choosenCurrencyA;
   this.displayCurrencySelectorA = false;
-  this.updateForexRateIfApplicable();
+  this.updateForexRateIfApplicable(this.date);
 }
 
 // tslint:disable-next-line:member-ordering
@@ -183,8 +183,9 @@ inputBtnclicked(btnName) {
    }
 ];
 
-updateForexRateIfApplicable () {
+updateForexRateIfApplicable (date) {
   if (this.currencyA && this.currencyB && this.date) {
+    console.log("date changed");
      this.authService.getForexRate(moment(this.date).format('DD-MM-YYYY'), this.currencyA['symbol'], this.currencyB['symbol'])
      .subscribe(
        (forexRate: any) => (

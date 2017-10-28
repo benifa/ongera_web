@@ -49,7 +49,7 @@
 
     <div class="col-xs-5 col-xs-offset-1">
       <div class="datepicker-container">
-        <ng-datepicker [(ngModel)]="date" data-container="body"></ng-datepicker>
+        <ng-datepicker [(ngModel)]="date" (ngModelChange)="updateForexRateIfApplicable($event)"  data-container="body"></ng-datepicker>
       </div>
     </div>
   </div>
@@ -111,14 +111,11 @@
 
     <div class="col-xs-3 col-xs-offset-1">
       <div class="datepicker-container datepicker-maturityTime">
-        <ng-datepicker [(ngModel)]="date" data-container="body"></ng-datepicker>
+        <ng-datepicker [(ngModel)]="date" (ngModelChange)="updateForexRateIfApplicable($event)" data-container="body"></ng-datepicker>
       </div>
-<<<<<<< HEAD
-=======
 
       <button class="feature-label expected-eprecition-label compute-btn">Compute</button>
       
->>>>>>> 487bc551992cac904bb93f70982bc2d2e9d2909a
     </div>
 
   </div> 
