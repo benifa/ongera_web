@@ -132,24 +132,24 @@ width: 0%;
     outline: 0;
 }
 
-.feature-label:hover{
+/* .feature-label:hover{
 
     box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
-}
+} */
 
-.expected-eprecition-label{
+/* .expected-eprecition-label{
     margin-top: 30px;
     height: 50px;
     
-}
+} */
 
 .currency-picker-button:hover{
     box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
  }
 
-  .row-title:hover{
+  /* .row-title:hover{
     box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
- } 
+ }  */
  .currency-name:hover{
     box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
     
