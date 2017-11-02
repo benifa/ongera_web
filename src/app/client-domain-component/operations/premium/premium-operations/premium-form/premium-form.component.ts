@@ -18,11 +18,20 @@ export class PremiumFormComponent implements OnInit {
   displayCurrencySelectorB: boolean;
   displayCurrencySelectorA: boolean;
   customInputBtn: ICustomInputBtn;
-  date: Date;
-  forexRate: string;
+  pricingDays: number;
+  pricingdate: Date;
+  maturityDate: Date;
+  forexRate: number;
+  minDate = new Date();
+  maturityTime: number;
+  localInterestRate: number;
+  foreignInterestRate: number;
+  expectedDepreciation: number;
+
 
   constructor( private authService: AuthService) {
-    this.date = new Date();
+    // this.pricingdate = new Date();
+    // this.maturityDate = new Date();
    }
 
   ngOnInit() {
@@ -63,18 +72,22 @@ choosenCurrencyB(choosenCurrencyB) {
   this.currencyB = choosenCurrencyB;
   this.displayCurrencySelectorB = false;
   this.updateForexRateIfApplicable();
+  this.updateForeignInterestRateIfApplicable();
+  this.updateExpectedDepreciationIfApplicable();
 }
 
 choosenCurrencyA(choosenCurrencyA) {
   this.currencyA = choosenCurrencyA;
   this.displayCurrencySelectorA = false;
   this.updateForexRateIfApplicable();
+  this.updateLocalInterestRateIfApplicable();
+  this.updateExpectedDepreciationIfApplicable();
 }
 
 // tslint:disable-next-line:member-ordering
 CUSTOMINPUTBTN: ICustomInputBtn= {
-
-  interestRate: false,
+  localInterestRate: false,
+  foreignInterestRate: false,
   forexRate: false,
   pricingDate: false,
   maturityTime: {
@@ -85,8 +98,8 @@ CUSTOMINPUTBTN: ICustomInputBtn= {
       threeHundredSixty: false,
       typeBtn: false,
   },
+  expectedDepreciation: false,
   typeBtn: false,
-  forexRateTwo: false
 };
 
 inputBtnclicked(btnName) {
@@ -96,10 +109,10 @@ inputBtnclicked(btnName) {
     //  }
 
      switch (btnName) {
-      case "interestRate": {
-        this.customInputBtn.interestRate = true;
-        break;
-      }
+      // case "interestRate": {
+      //   this.customInputBtn.interestRate = true;
+      //   break;
+      // }
 
       case "forexRate": {
         this.customInputBtn.forexRate = true;
@@ -141,15 +154,26 @@ inputBtnclicked(btnName) {
         this.customInputBtn.typeBtn = true;
         break;
       }
-      case "forexRateColumnTwo": {
-        this.customInputBtn.forexRateTwo = true;
-        break;
-      }
 
    }
-
-
 }
+
+updateMaturityTime(maturityTime: number) {
+  this.maturityTime = maturityTime;
+  this.customInputBtn.maturityTime.thirty = (maturityTime == 30);;
+  this.customInputBtn.maturityTime.sixty = (maturityTime == 60);
+  this.customInputBtn.maturityTime.ninety = (maturityTime == 90);
+  this.customInputBtn.maturityTime.oneHundredEighty = (maturityTime == 180);
+  this.customInputBtn.maturityTime.threeHundredSixty = (maturityTime == 360);
+  if (maturityTime != 30 && maturityTime != 60 && maturityTime != 90
+    && maturityTime != 180 && maturityTime != 360  ) {
+      this.customInputBtn.maturityTime.typeBtn = true;
+    } else {
+      this.customInputBtn.maturityTime.typeBtn = false;
+    }
+}
+
+
 
  // tslint:disable-next-line:member-ordering
  CURRENCIES: ICurrency [] = [
@@ -184,8 +208,8 @@ inputBtnclicked(btnName) {
 ];
 
 updateForexRateIfApplicable () {
-  if (this.currencyA && this.currencyB && this.date) {
-     this.authService.getForexRate(moment(this.date).format('DD-MM-YYYY'), this.currencyA['symbol'], this.currencyB['symbol'])
+  if (this.currencyA && this.currencyB && this.pricingdate) {
+     this.authService.getForexRate(moment(this.pricingdate).format('DD-MM-YYYY'), this.currencyA['symbol'], this.currencyB['symbol'])
      .subscribe(
        (forexRate: any) => (
          this.forexRate = forexRate['forex rate at pricing date'],
@@ -193,6 +217,86 @@ updateForexRateIfApplicable () {
          (error) => console.log(error)
      );
   }
+}
+
+updateForeignInterestRateIfApplicable() {
+  if (this.currencyB && this.maturityTime && this.pricingdate) {
+    this.authService.getInterestRate(moment(this.pricingdate).format('DD-MM-YYYY'), this.currencyB['symbol'], this.maturityTime)
+    .subscribe(
+      (forexRate: any) => (
+        this.foreignInterestRate = forexRate['interest rate'],
+        this.customInputBtn.foreignInterestRate = forexRate['interest rate']),
+        (error) => console.log(error)
+    );
+  }
+}
+
+updateLocalInterestRateIfApplicable() {
+  if (this.currencyA && this.maturityTime && this.pricingdate) {
+    this.authService.getInterestRate(moment(this.pricingdate).format('DD-MM-YYYY'), this.currencyA['symbol'], this.maturityTime)
+    .subscribe(
+      (forexRate: any) => (
+        this.localInterestRate = forexRate['interest rate'],
+        this.customInputBtn.localInterestRate = forexRate['interest rate']),
+        (error) => console.log(error)
+    );
+  }
+}
+
+updateExpectedDepreciationIfApplicable() {
+  if (this.currencyA &&  this.currencyB && this.maturityTime && this.pricingdate) {
+    this.authService.getExpectedDepreciation(moment(this.pricingdate).format('DD-MM-YYYY'),  this.currencyA['symbol'],
+     this.currencyB['symbol'], this.maturityTime)
+    .subscribe(
+      (forexRate: any) => (
+        this.expectedDepreciation = forexRate['expected_depreciation'],
+        this.customInputBtn.expectedDepreciation = forexRate['expected_depreciation']),
+        (error) => console.log(error)
+    );
+  }
+}
+
+onPricingDateChange($event) {
+  this.pricingDays = this.calculateDate(Date.now(), Date.parse($event.value));
+  this.customInputBtn.pricingDate = true;
+  this.pricingdate = new Date($event.value);
+  this.updateForexRateIfApplicable();
+  this.updateForeignInterestRateIfApplicable();
+  this.updateLocalInterestRateIfApplicable();
+  this.updateExpectedDepreciationIfApplicable();
+}
+
+onPricingDateBulbeChange() {
+  if (this.pricingDays) {
+     this.pricingdate = moment(new Date()).add( this.pricingDays, 'days').toDate();
+     this.updateForexRateIfApplicable();
+     this.updateForeignInterestRateIfApplicable();
+     this.updateLocalInterestRateIfApplicable();
+     this.updateExpectedDepreciationIfApplicable();
+  }
+}
+
+onMaturityDateChange ($event) {
+  this.updateMaturityTime(this.calculateDate(Date.now(), Date.parse($event.value)));
+  this.maturityDate = new Date($event.value);
+  this.updateForeignInterestRateIfApplicable();
+  this.updateLocalInterestRateIfApplicable();
+  this.updateExpectedDepreciationIfApplicable();
+}
+
+calculateDate(startDate: number, endDate: number) {
+  console.log(startDate);
+  console.log(endDate);
+    const diffc = endDate - startDate;
+    return Math.round(Math.abs(diffc / (1000 * 60 * 60 * 24)));
+  }
+
+onMaturityTimeSelected($event) {
+  this.updateMaturityTime($event.target.value);
+  this.maturityDate = moment(new Date()).add( this.maturityTime, 'days').toDate();
+  this.updateForeignInterestRateIfApplicable();
+  this.updateLocalInterestRateIfApplicable();
+  this.updateExpectedDepreciationIfApplicable();
 }
 
 }

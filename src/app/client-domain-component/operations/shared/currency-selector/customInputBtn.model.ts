@@ -1,7 +1,8 @@
 export interface ICustomInputBtn {
     
     // tslint:disable-next-line:semicolon
-    interestRate: boolean
+    localInterestRate: boolean
+    foreignInterestRate: boolean
     forexRate: boolean
     pricingDate:boolean
     maturityTime:{
@@ -12,6 +13,6 @@ export interface ICustomInputBtn {
         threeHundredSixty:boolean
         typeBtn:boolean
     },
+    expectedDepreciation : boolean
     typeBtn:boolean
-    forexRateTwo:boolean
 }

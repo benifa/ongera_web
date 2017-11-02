@@ -122,5 +122,23 @@ export class AuthService {
             });
     }
 
+    getInterestRate(date: string, currency: string, maturity: number ) {
+        return this.http.get(this.BASE_URL + 'interestrate/bnr/' + date + '/' + currency + '/' + maturity, this.getHeaders())
+        .map(
+            (response: Response) => {
+                const data = response.json();
+                return data;
+            });
+    }
+
+    getExpectedDepreciation(date: string, local: string, foreign: string, maturity: number ) {
+        return this.http.get(this.BASE_URL + 'forexrate/bnr/' + date + '/' + foreign + local + '/' + maturity, this.getHeaders())
+        .map(
+            (response: Response) => {
+                const data = response.json();
+                return data;
+            });
+    }
+
 
 }
