@@ -3,6 +3,8 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { Http, Response, RequestOptions, Headers } from '@angular/http';
 import { Injectable } from '@angular/core';
 import 'rxjs/Rx';
+import { Subject } from 'rxjs/Subject';
+import { Premium } from './../premium.model';
 
 @Injectable()
 export class AuthService {
@@ -11,6 +13,7 @@ export class AuthService {
     token: String;
     user: User;
     isLoading: boolean;
+    premiumComputed = new Subject<Premium>();
     constructor(private http: Http, private router: Router, private route: ActivatedRoute) {
 
     }
@@ -132,7 +135,22 @@ export class AuthService {
     }
 
     getExpectedDepreciation(date: string, local: string, foreign: string, maturity: number ) {
-        return this.http.get(this.BASE_URL + 'forexrate/bnr/' + date + '/' + foreign + local + '/' + maturity, this.getHeaders())
+
+        return this.http.post(this.BASE_URL + 'depreciation',  {
+            'pricingDate' : date,
+            'underlying' : foreign + local,
+            'maturity' : maturity,
+            'sourceName' : 'bnr'
+        }, this.getHeaders())
+        .map(
+            (response: Response) => {
+                const data = response.headers.get('location');
+                return data;
+            });
+    }
+
+    getExpectationProgress(progressUri) {
+        return this.http.get(progressUri, this.getHeaders())
         .map(
             (response: Response) => {
                 const data = response.json();
@@ -140,5 +158,30 @@ export class AuthService {
             });
     }
 
+    computePremium(pricingDate: string, domesticCurrency: string, foreignCurrency: string, domesticInterestRate: number,
+        foreignInterestRate: number,
+         maturity: number, forexRate: number, depreciation: number) {
+        return this.http.post(this.BASE_URL + 'premium',  {
+            'pricing_date' : pricingDate,
+            'domestic_currency' : domesticCurrency,
+            'foreign_currency' : foreignCurrency,
+            'domestic_interest_rate': domesticInterestRate,
+            'foreign_interest_rate': foreignInterestRate,
+            'maturity' : maturity,
+            'forex_rate' : forexRate, 'expected_depreciation' : depreciation
+
+        }, this.getHeaders())
+        .subscribe(
+            (response: Response) => {
+                if (response['ok']) {
+                    const premium  = response.json();
+                    this.premiumComputed.next(premium);
+                }
+            },
+            (error: Error) => {
+                this.isLoading = false;
+            }
+            );
+    }
 
 }

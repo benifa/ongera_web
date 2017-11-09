@@ -1,9 +1,12 @@
+import { User } from './../../../../user.model';
+import { state } from '@angular/animations';
 import { AuthService } from './../../../../auth/auth.service';
 import { Component, OnInit } from '@angular/core';
 import {OperationService} from '../../../shared/operation.service';
 import {ICurrency} from '../../../shared/currency-selector/currency.model';
 import {ICustomInputBtn} from '../../../shared/currency-selector/customInputBtn.model';
 import * as moment from 'moment';
+import {OperationStatus} from '../../../shared/operation-status.model';
 
 @Component({
   selector: 'app-premium-form',
@@ -27,6 +30,7 @@ export class PremiumFormComponent implements OnInit {
   localInterestRate: number;
   foreignInterestRate: number;
   expectedDepreciation: number;
+  progressUri: string;
 
 
   constructor( private authService: AuthService) {
@@ -245,15 +249,36 @@ updateLocalInterestRateIfApplicable() {
 
 updateExpectedDepreciationIfApplicable() {
   if (this.currencyA &&  this.currencyB && this.maturityTime && this.pricingdate) {
-    this.authService.getExpectedDepreciation(moment(this.pricingdate).format('DD-MM-YYYY'),  this.currencyA['symbol'],
+     this.authService.getExpectedDepreciation(moment(this.pricingdate).format('DD-MM-YYYY'),  this.currencyA['symbol'],
      this.currencyB['symbol'], this.maturityTime)
     .subscribe(
-      (forexRate: any) => (
-        this.expectedDepreciation = forexRate['expected_depreciation'],
-        this.customInputBtn.expectedDepreciation = forexRate['expected_depreciation']),
+      (progressUri: string) => (
+        this.progressUri = progressUri,
+        this.getExpectationProgress(progressUri)
+      ),
         (error) => console.log(error)
     );
   }
+}
+
+getExpectationProgress(progressUri: String) {
+  this.authService.getExpectationProgress(progressUri)
+  .subscribe(
+    (statusResponse: OperationStatus) => (
+      this.updateDepreciationOperationProgress(statusResponse),
+      (error) => console.log(error)
+    )
+  );
+}
+
+updateDepreciationOperationProgress(status: OperationStatus) {
+if (status.current == 100) {
+    this.expectedDepreciation = status.result;
+    this.customInputBtn.expectedDepreciation = true;
+} else if (status.state != 'FAILURE') {
+  setTimeout(() => { this.getExpectationProgress(this.progressUri); }, 10000);
+}
+
 }
 
 onPricingDateChange($event) {
@@ -297,6 +322,12 @@ onMaturityTimeSelected($event) {
   this.updateForeignInterestRateIfApplicable();
   this.updateLocalInterestRateIfApplicable();
   this.updateExpectedDepreciationIfApplicable();
+}
+
+computePremium() {
+  this.authService.computePremium(moment(this.pricingdate).format('DD-MM-YYYY'),
+  this.currencyA['symbol'], this.currencyB['symbol'], this.localInterestRate,
+   this.foreignInterestRate,  this.maturityTime, this.forexRate, this.expectedDepreciation);
 }
 
 }

@@ -1,5 +1,5 @@
 <div class="operation-form">
-  <form>
+  <form name="Form">
     <div class="main-row">
       <div class="row-title">
         <p>Choose your couple of currencies</p>
@@ -51,7 +51,7 @@
       <div class="col-xs-5 col-xs-offset-1">
         <div class="datepicker-container">
           <mat-form-field>
-            <input matInput [(ngModel)]="pricingdate" [min]="minDate" (dateChange)="onPricingDateChange($event)" name="pricingDateInput"
+            <input matInput [(ngModel)]="pricingdate" [max]="minDate" (dateChange)="onPricingDateChange($event)" name="pricingDateInput"
               [matDatepicker]="pricingDatePicker" placeholder="Choose date">
             <mat-datepicker-toggle matSuffix [for]="pricingDatePicker"></mat-datepicker-toggle>
             <mat-datepicker touchUi="true" #pricingDatePicker></mat-datepicker>
@@ -142,13 +142,13 @@
       </div>
 
       <div class="col-xs-2">
-        <input [ngModel]="expectedDepreciation | number: '1.2-2'" (ngModelChange)="updateAmount($event)" [ngClass]="{'input-btn-click': customInputBtn.expectedDepreciation}"
+        <input [ngModel]="expectedDepreciation | number: '1.4-4'" (ngModelChange)="updateAmount($event)" [ngClass]="{'input-btn-click': customInputBtn.expectedDepreciation}"
          (click)="inputBtnclicked('pricingDate')" type="type" name="expectedDepreciation"
           class="input-btn-generic" />
       </div>
 
       <div class="col-xs-5 col-xs-offset-2">
-        <button class="z-depth-1 ongera-button" color="primary" mat-button>
+        <button  ng-disabled="!Form.$valid" (click)="computePremium()" class="z-depth-1 ongera-button" color="primary" mat-button>
           HIT HERE AT THE END TO COMPUTE YOUR PREMIUMS...
         </button>
       </div>
