@@ -78,6 +78,7 @@
     position: relative;
     z-index: 1;
     box-sizing: border-box;
+    background-color: black;
     -webkit-overflow-scrolling: touch;
     display: block;
     overflow: hidden;
