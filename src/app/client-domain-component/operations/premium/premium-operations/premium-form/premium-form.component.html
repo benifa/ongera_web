@@ -48,7 +48,7 @@
           (click)="inputBtnclicked('pricingDate')" type="" name="pricingDateBulble" class="input-btn-generic" />
       </div>
 
-      <div class="col-xs-5 col-xs-offset-1">
+      <div class="col-xs-2 col-xs-offset-1">
         <div class="datepicker-container">
           <mat-form-field>
             <input matInput [(ngModel)]="pricingdate" [max]="minDate" (dateChange)="onPricingDateChange($event)" name="pricingDateInput"
@@ -56,8 +56,6 @@
             <mat-datepicker-toggle matSuffix [for]="pricingDatePicker"></mat-datepicker-toggle>
             <mat-datepicker touchUi="true" #pricingDatePicker></mat-datepicker>
           </mat-form-field>
-
-
         </div>
       </div>
     </div>
@@ -71,7 +69,6 @@
         <input [ngModel]="forexRate | number: '1.2-2'" (ngModelChange)="updateAmount($event)" [ngClass]="{'input-btn-click': customInputBtn.forexRate}"
           (click)="inputBtnclicked('forexRate')" type="" name="forexRate" class="input-btn-generic" />
       </div>
-
     </div>
 
     <div class="row vert-align">
@@ -94,24 +91,23 @@
               name="" class="input-btn-maturity" value="90" />
             <input [ngClass]="{'input-btn-click': customInputBtn.maturityTime.threeHundredSixty }" (click)="onMaturityTimeSelected($event)"
               type="" name="" class="input-btn-maturity" value="360" />
-            <input [ngClass]="{'input-btn-click': customInputBtn.maturityTime.typeBtn }" (click)="onMaturityTimeSelected($event)"
-              type="" name="" class="input-btn-maturity" value="type" />
+            <input [ngClass]="{'input-btn-click': customInputBtn.maturityTime.typeBtn }" (click)="onMaturityTimeSelected($event)" type=""
+              name="" class="input-btn-maturity" value="type" />
 
           </div>
         </div>
       </div>
 
-
-      <div class="col-xs-3 col-xs-offset-1">
-          <div class="datepicker-container">
-            <mat-form-field>
-              <input matInput [(ngModel)]="maturityDate" [min]="minDate" (dateChange)="onMaturityDateChange($event)" name="maturityDateInput"
-                [matDatepicker]="maturityDatePicker" placeholder="Maturity Date">
-              <mat-datepicker-toggle matSuffix [for]="maturityDatePicker"></mat-datepicker-toggle>
-              <mat-datepicker touchUi="true" #maturityDatePicker></mat-datepicker>
-            </mat-form-field>
-          </div>
+      <div class="col-xs-2 col-xs-offset-1">
+        <div class="datepicker-container">
+          <mat-form-field>
+            <input matInput [(ngModel)]="maturityDate" [min]="minDate" (dateChange)="onMaturityDateChange($event)" name="maturityDateInput"
+              [matDatepicker]="maturityDatePicker" placeholder="Maturity Date">
+            <mat-datepicker-toggle matSuffix [for]="maturityDatePicker"></mat-datepicker-toggle>
+            <mat-datepicker touchUi="true" #maturityDatePicker></mat-datepicker>
+          </mat-form-field>
         </div>
+      </div>
 
     </div>
 
@@ -122,18 +118,15 @@
 
       <div class="col-xs-2">
         <input name="localInterestRate" [ngModel]="localInterestRate | number: '1.2-2'" (ngModelChange)="updateLocalInterestRate($event)"
-         [ngClass]="{'input-btn-click': customInputBtn.localInterestRate}" (click)="inputBtnclicked('interestRate')" type="" name="localInterestRate"
-          class="input-btn-generic" />
+          [ngClass]="{'input-btn-click': customInputBtn.localInterestRate}" (click)="inputBtnclicked('interestRate')" type=""
+          name="localInterestRate" class="input-btn-generic" />
       </div>
 
       <div class="col-xs-2 col-xs-offset-4">
-          <input [ngModel]="foreignInterestRate | number: '1.2-2'" (ngModelChange)="updateLocalInterestRate($event)"
-           [ngClass]="{'input-btn-click': customInputBtn.foreignInterestRate}" (click)="inputBtnclicked('interestRate')" type="" name="foreignInterestRate"
-          class="input-btn-generic" />
-          
+        <input [ngModel]="foreignInterestRate | number: '1.2-2'" (ngModelChange)="updateLocalInterestRate($event)" [ngClass]="{'input-btn-click': customInputBtn.foreignInterestRate}"
+          (click)="inputBtnclicked('interestRate')" type="" name="foreignInterestRate" class="input-btn-generic" />
+
       </div>
-
-
     </div>
 
     <div class="row vert-align" style="margin-top:20px;">
@@ -143,12 +136,11 @@
 
       <div class="col-xs-2">
         <input [ngModel]="expectedDepreciation | number: '1.4-4'" (ngModelChange)="updateAmount($event)" [ngClass]="{'input-btn-click': customInputBtn.expectedDepreciation}"
-         (click)="inputBtnclicked('pricingDate')" type="type" name="expectedDepreciation"
-          class="input-btn-generic" />
+          (click)="inputBtnclicked('pricingDate')" type="type" name="expectedDepreciation" class="input-btn-generic" />
       </div>
 
-      <div class="col-xs-5 col-xs-offset-2">
-        <button  ng-disabled="!Form.$valid" (click)="computePremium()" class="z-depth-1 ongera-button" color="primary" mat-button>
+      <div class="col-xs-4 col-xs-offset-2">
+        <button ng-disabled="!Form.$valid" (click)="computePremium()" class="z-depth-1 ongera-button" color="primary" mat-button>
           HIT HERE AT THE END TO COMPUTE YOUR PREMIUMS...
         </button>
       </div>

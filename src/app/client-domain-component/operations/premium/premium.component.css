@@ -34,11 +34,12 @@
 }
 
 .mat-drawer-content {
-    position: relative;
+    position: absolute;
     z-index: 1;
     display: block;
     height: 100%;
-    overflow: auto;
+    overflow-y: auto;
+    overflow-x: hidden;
 }
 
 .docs-component-viewer-sidenav-container .mat-drawer-content .docs-component-viewer-sidenav{
@@ -68,30 +69,23 @@
   .docs-component-viewer-sidenav-container {
     width: 100%;
     min-height: 100%;
-    position: relative;
     flex-grow: 1;
-    margin: 0; 
     -webkit-box-direction: normal;
    }
 
   .mat-drawer-container {
-    position: relative;
     z-index: 1;
     box-sizing: border-box;
-    background-color: black;
-    -webkit-overflow-scrolling: touch;
+    background-color: rgb(250, 242, 235);
     display: block;
-    overflow: hidden;
 }
   .inner-sidenav-content {
-
-    /* position: absolute; */
     right: 0;
     left: 0;
     z-index: 1;
     display: block;
     height: 100%;
-    overflow: auto;
+    overflow-y: auto;
     margin-left: 240px;
     margin-right: 0px;
 }
@@ -109,6 +103,7 @@
     color: rgba(0, 0, 0, 0.87);
     min-width:200px;
     padding-bottom: 72px;
+    height: 100%;
     position: absolute;
     overflow-y: auto;
     top: 0;
