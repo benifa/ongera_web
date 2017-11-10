@@ -1,4 +1,4 @@
-@import url('//ajax.googleapis.com/ajax/libs/angular_material/0.8.3/angular-material.min.css');
+
 .login-form {
   width: 400px;
   margin: 0 auto;
@@ -34,4 +34,11 @@ input.ng-invalid.ng-touched{
  
 label>span.white {
   color: #ffffff;
+}
+
+.center-content {
+  height:33%;
+  display: flex;
+  justify-content: center;
+  align-items:center;
 }

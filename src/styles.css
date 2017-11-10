@@ -1,6 +1,2 @@
 /* You can add global styles to this file, and also import other style files */
-@import "~@angular/material/prebuilt-themes/indigo-pink.css";
-/* .ngx-datepicker-calendar-container{
-    top: -203px !important;
-    background: #FCE5D7 !important;
-} */
+@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
