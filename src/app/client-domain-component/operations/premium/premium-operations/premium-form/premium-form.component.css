@@ -259,11 +259,9 @@ width: 0%;
   }
 
 .vert-align {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 2px -5px;
-    position: relative;
+    -webkit-transform-style: preserve-3d;
+    -moz-transform-style: preserve-3d;
+    transform-style: preserve-3d;
 }
 .compute-btn{
     margin-top: 70px !important;
@@ -272,18 +270,17 @@ width: 0%;
 
 }
 
+.v-center {
+    position: relative;
+    transform: translateY(50%);
+  }
+
 .interest-rate-label{
     margin-left: 72%;}
 
 
     @media only screen and (max-width: 700px) {
         
-            /* #column-1  {  
-                width: 40%;      
-            }
-            .void-column{
-            width: 0%;
-            } */
             #label-column{
                 display: -webkit-box;
                 display: -ms-flexbox;
@@ -304,14 +301,14 @@ width: 0%;
             }
         }
 .datepicker-container{
-    position: absolute;
-    background: #F5B78D;
+    /* position: absolute;
+    background: #F5B78D; */
     /* top: 40px; */
-    left: 0;
+    /* left: 0;
     box-shadow: 0 1px 4px 0 rgba(0,0,0,.08);
     border: 1px solid #dfe3e9;
     z-index: 99 !important;
-    margin-left: 35%;
+    margin-left: 35%; */
     
     
 }

@@ -38,8 +38,8 @@
       </div>
     </div>
 
-    <div class="row vert-align">
-      <div class="col-xs-3 center-vert">
+    <div class="row ">
+      <div class="col-xs-3 ">
         <p class="feature-label first-label">Pricing Date</p>
       </div>
 
@@ -60,9 +60,9 @@
       </div>
     </div>
 
-    <div class="row vert-align">
-      <div class="col-xs-3 center-vert">
-        <p class="feature-label ">Forex rate</p>
+    <div class="row">
+      <div class="col-xs-3">
+        <p class="feature-label first-label">Forex rate</p>
       </div>
 
       <div class="col-xs-8">
@@ -73,7 +73,7 @@
 
     <div class="row vert-align">
       <div class="col-xs-3 center-vert">
-        <p class="feature-label ">Maturity time</p>
+        <p class="feature-label v-center">Maturity time</p>
       </div>
 
       <div class="col-xs-4">
@@ -99,7 +99,7 @@
       </div>
 
       <div class="col-xs-2 col-xs-offset-1">
-        <div class="datepicker-container">
+        <div class="datepicker-container v-center">
           <mat-form-field>
             <input matInput [(ngModel)]="maturityDate" [min]="minDate" (dateChange)="onMaturityDateChange($event)" name="maturityDateInput"
               [matDatepicker]="maturityDatePicker" placeholder="Maturity Date">
@@ -140,7 +140,7 @@
       </div>
 
       <div class="col-xs-4 col-xs-offset-2">
-        <button ng-disabled="!Form.$valid" (click)="computePremium()" class="z-depth-1 ongera-button" color="primary" mat-button>
+        <button ng-disabled="!Form.$valid" (click)="computePremium()" class="z-depth-1 ongera-button v-center" color="primary" mat-button>
           HIT HERE AT THE END TO COMPUTE YOUR PREMIUMS...
         </button>
       </div>
