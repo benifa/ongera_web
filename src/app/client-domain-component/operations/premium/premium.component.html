@@ -15,4 +15,8 @@
         <app-premium-operations></app-premium-operations>
       </div>
     </div>
+    <div *ngIf="authService.isLoading" class="loading-indicator" layout="row" layout-sm="column" layout-align="space-around">
+        <mat-progress-spinner mode="indeterminate" value="{{operationProgress}}"></mat-progress-spinner>
+      <!-- <mat-progress-circular md-mode="determinate" value="{{vm.determinateValue}}"></mat-progress-circular> -->
+    </div>
   </mat-sidenav-container>

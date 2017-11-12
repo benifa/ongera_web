@@ -1,3 +1,5 @@
+import { OperationStatus } from './../shared/operation-status.model';
+import { AuthService } from './../../auth/auth.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -6,10 +8,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./premium.component.css']
 })
 export class PremiumComponent implements OnInit {
+  operationProgress = 0;
 
-  constructor() { }
+  constructor(private authService: AuthService) { }
 
   ngOnInit() {
+    this.authService.progressUpdated
+    .subscribe (
+      (status: OperationStatus) => {
+        this.operationProgress = status.current;
+      }
+    );
   }
 
 }

@@ -1,3 +1,4 @@
+import { OperationStatus } from './../operations/shared/operation-status.model';
 import { User } from './../user.model';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Http, Response, RequestOptions, Headers } from '@angular/http';
@@ -14,6 +15,7 @@ export class AuthService {
     user: User;
     isLoading: boolean;
     premiumComputed = new Subject<Premium>();
+    progressUpdated = new Subject<OperationStatus>();
     constructor(private http: Http, private router: Router, private route: ActivatedRoute) {
 
     }
@@ -45,7 +47,7 @@ export class AuthService {
     }
 
     getUserInformation() {
-        this.isLoading = true;
+        // this.isLoading = true;
         this.http.get(this.BASE_URL + this.clientId + '/user')
         .map(
             (response: Response) => {
@@ -54,6 +56,7 @@ export class AuthService {
             })
         .subscribe(
             (response: Response) => {
+                this.isLoading = false;
                 if (response['ok']) {
                     this.isLoading = false;
                     this.user = response.json();
@@ -150,10 +153,12 @@ export class AuthService {
     }
 
     getExpectationProgress(progressUri) {
+        this.isLoading = true;
         return this.http.get(progressUri, this.getHeaders())
         .map(
             (response: Response) => {
                 const data = response.json();
+                this.progressUpdated.next(data);
                 return data;
             });
     }
@@ -161,6 +166,7 @@ export class AuthService {
     computePremium(pricingDate: string, domesticCurrency: string, foreignCurrency: string, domesticInterestRate: number,
         foreignInterestRate: number,
          maturity: number, forexRate: number, depreciation: number) {
+        this.isLoading = true;
         return this.http.post(this.BASE_URL + 'premium',  {
             'pricing_date' : pricingDate,
             'domestic_currency' : domesticCurrency,

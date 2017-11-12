@@ -18,7 +18,7 @@ import {MatDatepickerModule} from '@angular/material';
 import {MatNativeDateModule} from '@angular/material';
 import { MatFormFieldModule } from '@angular/material';
 import { MatInputModule, MatButtonModule, MatCardModule, MatMenuModule, MatToolbarModule,
-     MatIconModule } from '@angular/material';
+     MatIconModule, MatProgressSpinnerModule } from '@angular/material';
 
 
 
@@ -43,7 +43,7 @@ import { MatInputModule, MatButtonModule, MatCardModule, MatMenuModule, MatToolb
         MatNativeDateModule,
         MatFormFieldModule,
         NgDatepickerModule,
-        MatInputModule, MatButtonModule, MatCardModule, MatMenuModule, MatToolbarModule, MatIconModule
+        MatInputModule, MatButtonModule, MatCardModule, MatMenuModule, MatToolbarModule, MatIconModule, MatProgressSpinnerModule
     ]
 })
 

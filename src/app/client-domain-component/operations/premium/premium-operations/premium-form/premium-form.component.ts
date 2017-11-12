@@ -7,6 +7,7 @@ import {ICurrency} from '../../../shared/currency-selector/currency.model';
 import {ICustomInputBtn} from '../../../shared/currency-selector/customInputBtn.model';
 import * as moment from 'moment';
 import {OperationStatus} from '../../../shared/operation-status.model';
+import { Subject } from 'rxjs/Subject';
 
 @Component({
   selector: 'app-premium-form',
@@ -31,8 +32,6 @@ export class PremiumFormComponent implements OnInit {
   foreignInterestRate: number;
   expectedDepreciation: number;
   progressUri: string;
-
-
   constructor( private authService: AuthService) {
     // this.pricingdate = new Date();
     // this.maturityDate = new Date();
@@ -275,7 +274,10 @@ updateDepreciationOperationProgress(status: OperationStatus) {
 if (status.current == 100) {
     this.expectedDepreciation = status.result;
     this.customInputBtn.expectedDepreciation = true;
-} else if (status.state != 'FAILURE') {
+    this.authService.isLoading = false;
+} else if (status.state == 'FAILURE') {
+  this.authService.isLoading = false;
+} else {
   setTimeout(() => { this.getExpectationProgress(this.progressUri); }, 10000);
 }
 
