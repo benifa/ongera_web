@@ -44,7 +44,7 @@ import { MatInputModule, MatButtonModule, MatCardModule, MatSidenavModule, MatMe
         MatFormFieldModule,
         NgDatepickerModule,
         MatInputModule, MatButtonModule, MatCardModule, MatSidenavModule,
-        MatMenuModule, MatToolbarModule, MatIconModule, MatProgressSpinnerModule
+        MatMenuModule, MatToolbarModule, MatIconModule, MatProgressSpinnerModule, CurrenciesListDirectiveDirective
     ]
 })
 
