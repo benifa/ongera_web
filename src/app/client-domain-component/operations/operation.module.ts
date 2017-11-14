@@ -12,7 +12,7 @@ import { PremiumOperationsComponent } from './premium/premium-operations/premium
 import { PremiumFormComponent } from './premium/premium-operations/premium-form/premium-form.component';
 import { PremiumResultsComponent } from './premium/premium-operations/premium-results/premium-results.component';
 import { CurrencySelectorComponent } from './shared/currency-selector/currency-selector.component';
-import { CurrenciesListDirectiveDirective } from './shared/currencies-list-directive.directive';
+import { SharedModule } from './shared/shared.module';
 import { OperationService } from './shared/operation.service';
 import {MatDatepickerModule} from '@angular/material';
 import {MatNativeDateModule} from '@angular/material';
@@ -44,7 +44,7 @@ import { MatInputModule, MatButtonModule, MatCardModule, MatSidenavModule, MatMe
         MatFormFieldModule,
         NgDatepickerModule,
         MatInputModule, MatButtonModule, MatCardModule, MatSidenavModule,
-        MatMenuModule, MatToolbarModule, MatIconModule, MatProgressSpinnerModule, CurrenciesListDirectiveDirective
+         MatMenuModule, MatToolbarModule, MatIconModule, MatProgressSpinnerModule, SharedModule
     ]
 })
 
