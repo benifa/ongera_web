@@ -3,6 +3,9 @@ import { User } from './../user.model';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Http, Response, RequestOptions, Headers } from '@angular/http';
 import { Injectable } from '@angular/core';
+// import 'rxjs/Rx';
+// import {Map} from 'rxjs/Map';
+import 'rxjs/add/operator/map';
 import { Subject } from 'rxjs/Subject';
 import { Premium } from './../premium.model';
 
