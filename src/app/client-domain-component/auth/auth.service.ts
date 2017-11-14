@@ -3,7 +3,6 @@ import { User } from './../user.model';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Http, Response, RequestOptions, Headers } from '@angular/http';
 import { Injectable } from '@angular/core';
-import 'rxjs/Rx';
 import { Subject } from 'rxjs/Subject';
 import { Premium } from './../premium.model';
 
