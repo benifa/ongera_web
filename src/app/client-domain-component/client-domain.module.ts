@@ -1,3 +1,4 @@
+import { CurrenciesListDirectiveDirective } from './operations/shared/currencies-list-directive.directive';
 import { ClientDomainRoutingModule } from './client-domain-routing.module';
 import { AuthService } from './auth/auth.service';
 import { FormsModule } from '@angular/forms';
@@ -15,7 +16,7 @@ import { ActivatedRoute, Params } from '@angular/router';
         ClientDomainComponent
     ],
     imports: [
-        CommonModule, FormsModule, ClientDomainRoutingModule, OperationModule, LoginModule
+        CommonModule, FormsModule, ClientDomainRoutingModule, OperationModule, LoginModule, CurrenciesListDirectiveDirective
     ],
     providers: [AuthService, AuthGuard]
 })
