@@ -138,7 +138,8 @@ export class AuthService {
     }
 
     getExpectedDepreciation(date: string, local: string, foreign: string, maturity: number ) {
-
+        this.progressUpdated.next(new OperationStatus (0, 0, 'STARTED',
+        'STARTED',  1));
         return this.http.post(this.BASE_URL + 'depreciation',  {
             'pricingDate' : date,
             'underlying' : foreign + local,
@@ -180,11 +181,13 @@ export class AuthService {
         .subscribe(
             (response: Response) => {
                 if (response['ok']) {
+                    this.isLoading = false;
                     const premium  = response.json();
                     this.premiumComputed.next(premium);
                 }
             },
             (error: Error) => {
+                this.isLoading = false;
                 this.isLoading = false;
             }
             );

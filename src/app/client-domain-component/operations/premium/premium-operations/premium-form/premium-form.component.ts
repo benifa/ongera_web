@@ -278,7 +278,7 @@ if (status.current == 100) {
 } else if (status.state == 'FAILURE') {
   this.authService.isLoading = false;
 } else {
-  setTimeout(() => { this.getExpectationProgress(this.progressUri); }, 10000);
+  setTimeout(() => { this.getExpectationProgress(this.progressUri); }, 50);
 }
 
 }

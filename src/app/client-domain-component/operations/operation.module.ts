@@ -17,7 +17,7 @@ import { OperationService } from './shared/operation.service';
 import {MatDatepickerModule} from '@angular/material';
 import {MatNativeDateModule} from '@angular/material';
 import { MatFormFieldModule } from '@angular/material';
-import { MatInputModule, MatButtonModule, MatCardModule, MatMenuModule, MatToolbarModule,
+import { MatInputModule, MatButtonModule, MatCardModule, MatSidenavModule, MatMenuModule, MatToolbarModule,
      MatIconModule, MatProgressSpinnerModule } from '@angular/material';
 
 
@@ -43,7 +43,8 @@ import { MatInputModule, MatButtonModule, MatCardModule, MatMenuModule, MatToolb
         MatNativeDateModule,
         MatFormFieldModule,
         NgDatepickerModule,
-        MatInputModule, MatButtonModule, MatCardModule, MatMenuModule, MatToolbarModule, MatIconModule, MatProgressSpinnerModule
+        MatInputModule, MatButtonModule, MatCardModule, MatSidenavModule,
+        MatMenuModule, MatToolbarModule, MatIconModule, MatProgressSpinnerModule
     ]
 })
 

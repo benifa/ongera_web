@@ -34,11 +34,21 @@
 }
 
 .mat-drawer-content {
+    /* position: absolute; */
+    /* z-index: 1;
+    display: block;
+    height: 100%; */
+    /* overflow-y: auto;
+    overflow-x: hidden; */
+}
+
+.mat-drawer-container {
     position: absolute;
     z-index: 1;
-    display: block;
     height: 100%;
-    overflow-y: auto;
+    box-sizing: border-box;
+    background-color: rgb(250, 242, 235);
+    display: block;
     overflow-x: hidden;
 }
 
@@ -73,12 +83,6 @@
     -webkit-box-direction: normal;
    }
 
-  .mat-drawer-container {
-    z-index: 1;
-    box-sizing: border-box;
-    background-color: rgb(250, 242, 235);
-    display: block;
-}
   .inner-sidenav-content {
     right: 0;
     left: 0;
