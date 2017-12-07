@@ -48,7 +48,7 @@
           (click)="inputBtnclicked('pricingDate')" type="" name="pricingDateBulble" class="input-btn-generic" />
       </div>
 
-      <div class="col-xs-2 col-xs-offset-1">
+      <div class="col-xs-2 col-xs-offset-3">
         <div class="datepicker-container">
           <mat-form-field>
             <input matInput [(ngModel)]="pricingdate" [max]="minDate" (dateChange)="onPricingDateChange($event)" name="pricingDateInput"
@@ -66,7 +66,7 @@
       </div>
 
       <div class="col-xs-8">
-        <input [ngModel]="forexRate | number: '1.2-2'" (ngModelChange)="updateAmount($event)" [ngClass]="{'input-btn-click': customInputBtn.forexRate}"
+        <input [ngModel]="forexRate | number: '1.2-2'" (ngModelChange)="onForexRateChanged($event)" [ngClass]="{'input-btn-click': customInputBtn.forexRate}"
           (click)="inputBtnclicked('forexRate')" type="" name="forexRate" class="input-btn-generic" />
       </div>
     </div>
@@ -117,13 +117,13 @@
       </div>
 
       <div class="col-xs-2">
-        <input name="localInterestRate" [ngModel]="localInterestRate | number: '1.2-2'" (ngModelChange)="updateLocalInterestRate($event)"
+        <input name="localInterestRate" [ngModel]="localInterestRate | number: '1.2-2'" (ngModelChange)="onLocalInterestRateChanged($event)"
           [ngClass]="{'input-btn-click': customInputBtn.localInterestRate}" (click)="inputBtnclicked('interestRate')" type=""
           name="localInterestRate" class="input-btn-generic" />
       </div>
 
       <div class="col-xs-2 col-xs-offset-4">
-        <input [ngModel]="foreignInterestRate | number: '1.2-2'" (ngModelChange)="updateLocalInterestRate($event)" [ngClass]="{'input-btn-click': customInputBtn.foreignInterestRate}"
+        <input [ngModel]="foreignInterestRate | number: '1.2-2'" (ngModelChange)="onForeignInterestRateChanged($event)" [ngClass]="{'input-btn-click': customInputBtn.foreignInterestRate}"
           (click)="inputBtnclicked('interestRate')" type="" name="foreignInterestRate" class="input-btn-generic" />
 
       </div>
@@ -135,11 +135,11 @@
       </div>
 
       <div class="col-xs-2">
-        <input [ngModel]="expectedDepreciation | number: '1.4-4'" (ngModelChange)="updateAmount($event)" [ngClass]="{'input-btn-click': customInputBtn.expectedDepreciation}"
+        <input [ngModel]="expectedDepreciation | number: '1.4-4'" (ngModelChange)="updateExpectedDepreciationIfApplicable()" [ngClass]="{'input-btn-click': customInputBtn.expectedDepreciation}"
           (click)="inputBtnclicked('pricingDate')" type="type" name="expectedDepreciation" class="input-btn-generic" />
       </div>
 
-      <div class="col-xs-4 col-xs-offset-2">
+      <div class="col-xs-5 col-xs-offset-2">
         <button ng-disabled="!Form.$valid" (click)="computePremium()" class="z-depth-1 ongera-button v-center" color="primary" mat-button>
           HIT HERE AT THE END TO COMPUTE YOUR PREMIUMS...
         </button>

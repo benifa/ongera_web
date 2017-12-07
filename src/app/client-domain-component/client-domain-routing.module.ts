@@ -11,10 +11,10 @@ const clientRoutes: Routes = [
     { path: '', component: ClientDomainComponent,
      children: [
         { path: '', redirectTo: 'login', pathMatch: 'full' },
-        { path: 'operations', loadChildren: getOperationModule
+        { path: 'operations', loadChildren: './operations/operation.module#OperationModule'
         , canActivate: [AuthGuard]
      },
-        { path: 'login', loadChildren: getLoginModule }
+        { path: 'login', loadChildren: './auth/login.modules#LoginModule' }
     ]
    }
 ];

@@ -6,8 +6,6 @@
     <div class="content">
         <app-premium></app-premium>
       </div>
-
-  <!-- (@CurveState.done)="animationDone($event) -->
   <img [@LogoutFadeState]="state" (@LogoutFadeState.done)="animateLogout($event)" *ngIf="logout" src="../assets/loading.png"
     class="img-responsive center-block" alt="Responsive image">
 </div>

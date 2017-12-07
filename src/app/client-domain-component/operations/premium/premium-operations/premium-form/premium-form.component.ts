@@ -32,7 +32,7 @@ export class PremiumFormComponent implements OnInit {
   foreignInterestRate: number;
   expectedDepreciation: number;
   progressUri: string;
-  constructor( private authService: AuthService) {
+  constructor( public authService: AuthService) {
     // this.pricingdate = new Date();
     // this.maturityDate = new Date();
    }
@@ -282,6 +282,23 @@ if (status.current == 100) {
 }
 
 }
+
+onForexRateChanged($event) {
+  this.forexRate = $event.value;
+  this.updateExpectedDepreciationIfApplicable();
+}
+
+onLocalInterestRateChanged($event) {
+  this.localInterestRate = $event.value;
+  this.updateExpectedDepreciationIfApplicable();
+}
+
+onForeignInterestRateChanged($event) {
+  this.foreignInterestRate = $event.value;
+  this.updateExpectedDepreciationIfApplicable();
+}
+
+
 
 onPricingDateChange($event) {
   this.pricingDays = this.calculateDate(Date.now(), Date.parse($event.value));

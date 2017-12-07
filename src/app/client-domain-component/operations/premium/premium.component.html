@@ -1,21 +1,19 @@
-<mat-sidenav-container class="docs-component-viewer-sidenav-container mat-drawer-container 
+<mat-sidenav-container  class="docs-component-viewer-sidenav-container mat-drawer-container 
           mat-sidenav-container mat-drawer-transition">
-    <div class="mat-drawer-backdrop"></div>
-    <div tabindex="-1" class="cdk-visually-hidden cdk-focus-trap-anchor">
+  <div class="mat-drawer-backdrop"></div>
+  <div tabindex="-1" class="cdk-visually-hidden cdk-focus-trap-anchor">
+  </div>
+  <mat-sidenav  #sidenav mode="side" opened="true" class="docs-component-viewer-sidenav mat-drawer mat-sidenav ng-tns-c13-1 
+    ng-trigger ng-trigger-transform mat-drawer-side" tabindex="-1" style="transform: translate3d(0px, 0px, 0px); visibility: visible;">
+    <app-premium-actions></app-premium-actions>
+  </mat-sidenav>
+  <div tabindex="-1" class="cdk-visually-hidden cdk-focus-trap-anchor"></div>
+  <div cdkscrollable="" class="mat-drawer-content mat-sidenav-content" style="margin-left: 0px; margin-right: 0px;">
+    <div class="docs-component-sidenav-content">
+      <app-premium-operations (sideNavOpened)="openSideNav()"></app-premium-operations>
     </div>
-
-    <mat-sidenav  mode="side" opened="true" class="docs-component-viewer-sidenav mat-drawer mat-sidenav ng-tns-c13-1 
-    ng-trigger ng-trigger-transform mat-drawer-side"
-      tabindex="-1" style="transform: translate3d(0px, 0px, 0px); visibility: visible;">
-      <app-premium-actions></app-premium-actions>
-    </mat-sidenav>
-    <div tabindex="-1" class="cdk-visually-hidden cdk-focus-trap-anchor"></div>
-    <div cdkscrollable="" class="mat-drawer-content mat-sidenav-content" style="margin-left: 0px; margin-right: 0px;">
-      <div class="docs-component-sidenav-content">
-        <app-premium-operations></app-premium-operations>
-      </div>
-    </div>
-    <div *ngIf="authService.isLoading" class="loading-indicator" layout="row" layout-sm="column" layout-align="space-around">
- <mat-progress-spinner mode="determinate" value="{{operationProgress}}"></mat-progress-spinner>
-    </div>
-  </mat-sidenav-container>
+  </div>
+  <div *ngIf="authService.isLoading" class="loading-indicator" layout="row" layout-sm="column" layout-align="space-around">
+    <mat-progress-spinner color="warn" mode="determinate" value="{{operationProgress}}"></mat-progress-spinner>
+  </div>
+</mat-sidenav-container>

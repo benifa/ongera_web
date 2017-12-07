@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output } from '@angular/core';
+import { Subject } from 'rxjs/Subject';
 
 @Component({
   selector: 'app-premium-operations',
@@ -6,10 +7,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./premium-operations.component.css']
 })
 export class PremiumOperationsComponent implements OnInit {
-
+  @Output() sideNavOpened = new EventEmitter<Boolean>();
   constructor() { }
 
   ngOnInit() {
+  }
+
+  public openSideNav() {
+    this.sideNavOpened.emit(true);
   }
 
 }
