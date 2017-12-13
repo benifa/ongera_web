@@ -3,9 +3,8 @@ import { User } from './../user.model';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Http, Response, RequestOptions, Headers } from '@angular/http';
 import { Injectable } from '@angular/core';
-// import 'rxjs/Rx';
-// import {Map} from 'rxjs/Map';
 import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/catch';
 import { Subject } from 'rxjs/Subject';
 import { Premium } from './../premium.model';
 
@@ -14,6 +13,7 @@ export class AuthService {
     BASE_URL = 'https://ongera-api.herokuapp.com/';
     clientId: string;
     token: String;
+    refreshToken: String;
     user: User;
     isLoading: boolean;
     premiumComputed = new Subject<Premium>();
@@ -37,6 +37,7 @@ export class AuthService {
                     this.isLoading = false;
                     const body = response.json();
                     this.token = body['access_token'];
+                    this.refreshToken = body['refresh_token'];
                     this.user = body['user'];
                     this.router.navigate([this.clientId + '/login', this.user.firstname]);
                 }
@@ -74,7 +75,7 @@ export class AuthService {
     logout() {
         if (this.token) {
             this.isLoading = true;
-            this.http.post(this.BASE_URL + 'logout', null, this.getHeaders())
+            this.http.delete(this.BASE_URL + 'logout', this.getHeaders())
                 .subscribe(
                 (response: Response) => {
                     if (response['ok']) {
@@ -121,13 +122,29 @@ export class AuthService {
         return new RequestOptions({ headers: headersParams });
     }
 
+    getRefreshHeaders() {
+        const headersParams = new Headers();
+        headersParams.append('Content-Type', 'application/json');
+        headersParams.append('Authorization', 'Bearer ' + this.refreshToken);
+        return new RequestOptions({ headers: headersParams });
+    }
+
     getForexRate(date: string, local: string, foreign: string ) {
         return this.http.get(this.BASE_URL + 'forexrate/bnr/' + date + '/' + foreign + local, this.getHeaders())
         .map(
             (response: Response) => {
                 const data = response.json();
                 return data;
-            });
+            })
+        .catch(e => {
+            if (e.status === 401) {
+                return this.http.post(this.BASE_URL + 'refresh', this.getRefreshHeaders)
+                .map(
+                    ((response: Response) => {
+                       this.getForexRate(date, local, foreign);
+                    })
+                );
+        }});
     }
 
     getInterestRate(date: string, currency: string, maturity: number ) {
@@ -136,7 +153,16 @@ export class AuthService {
             (response: Response) => {
                 const data = response.json();
                 return data;
-            });
+            })
+        .catch(e => {
+            if (e.status === 401) {
+                return this.http.post(this.BASE_URL + 'refresh', this.getRefreshHeaders)
+                .map(
+                    ((response: Response) => {
+                       this.getInterestRate(date, currency, maturity);
+                    })
+                );
+        }});
     }
 
     getExpectedDepreciation(date: string, local: string, foreign: string, maturity: number ) {
@@ -152,7 +178,16 @@ export class AuthService {
             (response: Response) => {
                 const data = response.headers.get('location');
                 return data;
-            });
+            })
+        .catch(e => {
+            if (e.status === 401) {
+                return this.http.post(this.BASE_URL + 'refresh', this.getRefreshHeaders)
+                .map(
+                    ((response: Response) => {
+                       this.getExpectedDepreciation(date, local, foreign, maturity);
+                    })
+                );
+        }});
     }
 
     getExpectationProgress(progressUri) {
@@ -160,10 +195,20 @@ export class AuthService {
         return this.http.get(progressUri, this.getHeaders())
         .map(
             (response: Response) => {
+                this.isLoading = false;
                 const data = response.json();
                 this.progressUpdated.next(data);
                 return data;
-            });
+            })
+        .catch(e => {
+            if (e.status === 401) {
+                return this.http.post(this.BASE_URL + 'refresh', this.getRefreshHeaders)
+                .map(
+                    ((response: Response) => {
+                       this.getExpectationProgress(progressUri);
+                    })
+                );
+        }});
     }
 
     computePremium(pricingDate: string, domesticCurrency: string, foreignCurrency: string, domesticInterestRate: number,
@@ -189,7 +234,6 @@ export class AuthService {
                 }
             },
             (error: Error) => {
-                this.isLoading = false;
                 this.isLoading = false;
             }
             );

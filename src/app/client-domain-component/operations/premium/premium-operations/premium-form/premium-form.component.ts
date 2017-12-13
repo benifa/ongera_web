@@ -312,7 +312,7 @@ onPricingDateChange($event) {
 
 onPricingDateBulbeChange() {
   if (this.pricingDays) {
-     this.pricingdate = moment(new Date()).add( this.pricingDays, 'days').toDate();
+     this.pricingdate = moment(new Date()).add( -this.pricingDays, 'days').toDate();
      this.updateForexRateIfApplicable();
      this.updateForeignInterestRateIfApplicable();
      this.updateLocalInterestRateIfApplicable();
