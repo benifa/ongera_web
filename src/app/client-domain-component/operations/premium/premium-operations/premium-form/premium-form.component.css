@@ -15,17 +15,6 @@
 .row-title{
     background-color: #222B3A;
     color: white;
-    border: 1.5px solid #F5B78D;
-    border-radius: 8px;
-    padding: 8px;
-    font-size: 0.875em;
-    width: 30%;
-    text-align: center;
-    outline: 0;
-    height: 50px;
-    font-size: 11px;
-    padding-top: 14px;
-    font-weight: lighter;
 }
 
 .currency-name{
@@ -116,21 +105,6 @@ width: 0%;
     flex-direction: column;
     width: 25%;
 }
-.feature-label{
-    background-color: #FBE5D6;
-    color: #4C5B6C;
-    float: right;
-    border: 1.5px solid #F5B78D;
-    border-radius: 5px;
-    font-weight: 600;
-    font-size: 1em;
-    width: 135px;
-    height: 30px;
-    margin-top: 40px;
-    text-align: center;
-    font-style: italic;
-    outline: 0;
-}
 
 .currency-picker-button:hover{
     box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
@@ -185,12 +159,7 @@ width: 0%;
 .first-label{
     margin-top:20px;
 }
-#maturity-time{
-    display: flex;
-    flex-direction: column;
-    margin-top:25px;
-    margin-left: 25%;
-}
+
 #maturity-time-row-1{
     display: flex;
     flex-direction: row;
@@ -227,34 +196,24 @@ width: 0%;
    
 }
 
-.bg-text-view {
-    background-color: #fae5d7; 
-    padding: 4px;
-    font-size: 13px;
-    font-style: italic;
-    font-weight: bold;
-    height: auto;
-    border-radius: 4px;
-    border: 1px solid #db692b;
-    text-align: center;
-  }
-
 .vert-align {
     -webkit-transform-style: preserve-3d;
     -moz-transform-style: preserve-3d;
     transform-style: preserve-3d;
-}
-.compute-btn{
-    margin-top: 70px !important;
-    width: 110%;
-    border-radius: 11px;
-
 }
 
 .v-center {
     position: relative;
     transform: translateY(50%);
   }
+
+
+.compute-btn{
+    margin-top: 70px !important;
+    width: 110%;
+    border-radius: 11px;
+
+}
 
 .interest-rate-label{
     margin-left: 72%;}
@@ -294,19 +253,4 @@ width: 0%;
 
   .p {
     text-align: center;
-  }
-
-  .ongera-button {
-    background-color: #fae5d7; 
-    padding: 4px;
-    font-size: 13px;
-    font-style: italic;
-    font-weight: bold;
-    width: 100%;
-    height: auto;
-    border-radius: 4px;
-    text-align: center;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
   }

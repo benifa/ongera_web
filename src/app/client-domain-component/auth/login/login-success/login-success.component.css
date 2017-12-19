@@ -6,13 +6,13 @@
     margin-left: auto;
     margin-right: auto;
 }
-.text-box {
+.welcome-message {
     position: absolute;    
     height: 100%;
     text-align: center;    
     width: 100%;
 }
-.text-box:before {
+.welcome-message:before {
    content: '';
    display: inline-block;
    height: 100%;

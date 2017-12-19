@@ -195,7 +195,7 @@ export class AuthService {
         return this.http.get(progressUri, this.getHeaders())
         .map(
             (response: Response) => {
-                this.isLoading = false;
+                // this.isLoading = false;
                 const data = response.json();
                 this.progressUpdated.next(data);
                 return data;
