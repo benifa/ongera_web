@@ -8,6 +8,7 @@ import { ClientDomainModule } from './client-domain-component/client-domain.modu
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
+
 @NgModule({
   declarations: [
     AppComponent

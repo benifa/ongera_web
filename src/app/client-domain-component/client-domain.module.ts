@@ -9,7 +9,6 @@ import { OperationModule } from './operations/operation.module';
 import { AuthGuard } from './auth/auth-guard.service';
 import { ActivatedRoute, Params } from '@angular/router';
 
-
 @NgModule({
     declarations: [
         ClientDomainComponent

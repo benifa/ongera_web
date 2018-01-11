@@ -33,4 +33,6 @@
     border-radius: 4px;
     border: 1px solid #db692b;
     text-align: center;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }

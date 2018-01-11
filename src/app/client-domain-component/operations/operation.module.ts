@@ -19,6 +19,7 @@ import {MatNativeDateModule} from '@angular/material';
 import { MatFormFieldModule } from '@angular/material';
 import { MatInputModule, MatButtonModule, MatCardModule, MatSidenavModule, MatMenuModule, MatToolbarModule,
      MatIconModule, MatProgressSpinnerModule } from '@angular/material';
+import { ActionComponent } from './premium/premium-actions/action/action.component';
 
 
 
@@ -31,7 +32,8 @@ import { MatInputModule, MatButtonModule, MatCardModule, MatSidenavModule, MatMe
         PremiumOperationsComponent,
         PremiumFormComponent,
         PremiumResultsComponent,
-        CurrencySelectorComponent
+        CurrencySelectorComponent,
+        ActionComponent
     ],
     imports: [
         CommonModule,

@@ -1,10 +1,16 @@
-.side-action{
-    width: 240px;
-    height: 100%;
+.action-images-large {
+    width: 100%;
+} 
+
+:host {
+   display: block;
+   border: 2px solid rgb(139, 88, 88);
+   border-radius: 3px;
+   margin: 20px;
+   box-shadow: 3px 3px 2px #ccc; 
 }
 
 .marked {
-    background-color: #DB6728;
     animation: marked 0.5s ease-out forwards;
 }
 
@@ -18,9 +24,4 @@
     100%{
         transform: scale(1)
     }
-}
-
-.horizontal {
-    width: 30%;
-    display: inline-block;
 }
