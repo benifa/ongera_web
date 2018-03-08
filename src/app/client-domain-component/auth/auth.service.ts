@@ -1,3 +1,4 @@
+import { Observable } from 'rxjs/Observable';
 import { OperationStatus } from './../operations/shared/operation-status.model';
 import { User } from './../user.model';
 import { Router, ActivatedRoute } from '@angular/router';
@@ -32,19 +33,19 @@ export class AuthService {
             'password': password
         })
             .subscribe(
-            (response: Response) => {
-                if (response['ok']) {
+                (response: Response) => {
+                    if (response['ok']) {
+                        this.isLoading = false;
+                        const body = response.json();
+                        this.token = body['access_token'];
+                        this.refreshToken = body['refresh_token'];
+                        this.user = body['user'];
+                        this.router.navigate([this.clientId + '/login', this.user.firstname]);
+                    }
+                },
+                (error: Error) => {
                     this.isLoading = false;
-                    const body = response.json();
-                    this.token = body['access_token'];
-                    this.refreshToken = body['refresh_token'];
-                    this.user = body['user'];
-                    this.router.navigate([this.clientId + '/login', this.user.firstname]);
                 }
-            },
-            (error: Error) => {
-                this.isLoading = false;
-            }
             );
 
     }
@@ -52,22 +53,22 @@ export class AuthService {
     getUserInformation() {
         // this.isLoading = true;
         this.http.get(this.BASE_URL + this.clientId + '/user')
-        .map(
-            (response: Response) => {
-                const data = response.json();
-                return data;
-            })
-        .subscribe(
-            (response: Response) => {
-                this.isLoading = false;
-                if (response['ok']) {
+            .map(
+                (response: Response) => {
+                    const data = response.json();
+                    return data;
+                })
+            .subscribe(
+                (response: Response) => {
                     this.isLoading = false;
-                    this.user = response.json();
+                    if (response['ok']) {
+                        this.isLoading = false;
+                        this.user = response.json();
+                    }
+                },
+                (error: Error) => {
+                    this.isLoading = false;
                 }
-            },
-            (error: Error) => {
-                this.isLoading = false;
-            }
             );
 
     }
@@ -77,17 +78,19 @@ export class AuthService {
             this.isLoading = true;
             this.http.delete(this.BASE_URL + 'logout', this.getHeaders())
                 .subscribe(
-                (response: Response) => {
-                    if (response['ok']) {
+                    (response: Response) => {
+                        if (response['ok']) {
+                            this.isLoading = false;
+                            this.router.navigate([this.clientId + '/login']);
+                        }
+                    },
+                    (error: Error) => {
                         this.isLoading = false;
-                        this.router.navigate([this.clientId + '/login']);
                     }
-                },
-                (error: Error) => {
-                    this.isLoading = false;
-                }
                 );
             this.token = null;
+        } else {
+            this.router.navigate([this.clientId ? this.clientId : 'bk' + '/login']);
         }
     }
 
@@ -129,113 +132,119 @@ export class AuthService {
         return new RequestOptions({ headers: headersParams });
     }
 
-    getForexRate(date: string, local: string, foreign: string ) {
-        return this.http.get(this.BASE_URL + 'forexrate/bnr/' + date + '/' + foreign + local, this.getHeaders())
-        .map(
-            (response: Response) => {
-                const data = response.json();
-                return data;
-            })
-        .catch(e => {
-            if (e.status === 401) {
-                return this.http.post(this.BASE_URL + 'refresh', this.getRefreshHeaders)
-                .map(
-                    ((response: Response) => {
-                       this.getForexRate(date, local, foreign);
-                    })
-                );
-        }});
+    getForexRate(date: string, local: string, foreign: string) {
+        const respObs = this.http.get(this.BASE_URL + 'forexrate/bnr/' + date + '/' + foreign + local, this.getHeaders());
+        return respObs
+            .map(
+                (response: Response) => {
+                    const data = response.json();
+                    return data;
+                })
+            .catch(e => {
+                if (e.status === 401) {
+                    return this.refreshTokenIfNeeded(respObs);
+                }
+            });
     }
 
-    getInterestRate(date: string, currency: string, maturity: number ) {
-        return this.http.get(this.BASE_URL + 'interestrate/bnr/' + date + '/' + currency + '/' + maturity, this.getHeaders())
-        .map(
-            (response: Response) => {
-                const data = response.json();
-                return data;
-            })
-        .catch(e => {
-            if (e.status === 401) {
-                return this.http.post(this.BASE_URL + 'refresh', this.getRefreshHeaders)
-                .map(
-                    ((response: Response) => {
-                       this.getInterestRate(date, currency, maturity);
-                    })
-                );
-        }});
+    getInterestRate(date: string, currency: string, maturity: number) {
+        const respObs = this.http.get(this.BASE_URL + 'interestrate/bnr/' + date + '/' + currency + '/' + maturity, this.getHeaders());
+        return respObs
+            .map(
+                (response: Response) => {
+                    const data = response.json();
+                    return data;
+                })
+            .catch(e => {
+                if (e.status === 401) {
+                   return this.refreshTokenIfNeeded(respObs);
+                }
+            });
     }
 
-    getExpectedDepreciation(date: string, local: string, foreign: string, maturity: number ) {
-        this.progressUpdated.next(new OperationStatus (0, 0, 'STARTED',
-        'STARTED',  1));
-        return this.http.post(this.BASE_URL + 'depreciation',  {
-            'pricingDate' : date,
-            'underlying' : foreign + local,
-            'maturity' : maturity,
-            'sourceName' : 'bnr'
-        }, this.getHeaders())
+    getExpectedDepreciation(date: string, local: string, foreign: string, maturity: number) {
+        this.progressUpdated.next(new OperationStatus(0, 0, 'STARTED',
+            'STARTED', 1));
+        const respObs = this.http.post(this.BASE_URL + 'depreciation', {
+            'pricingDate': date,
+            'underlying': foreign + local,
+            'maturity': maturity,
+            'sourceName': 'bnr'
+        }, this.getHeaders());
+
+        return respObs
+            .map(
+                (response: Response) => {
+                    const data = response.headers.get('location');
+                    return data;
+                })
+            .catch(e => {
+                if (e.status === 401) {
+                    return this.refreshTokenIfNeeded(respObs);
+                }
+            });
+    }
+
+    refreshTokenIfNeeded (responseObser) {
+        return this.http.post(this.BASE_URL + 'refresh', null, this.getRefreshHeaders())
         .map(
-            (response: Response) => {
-                const data = response.headers.get('location');
-                return data;
+            ((response: Response) => {
+                if (response['ok']) {
+                    return responseObser;
+                } else {
+                    this.router.navigate([this.clientId + '/login']);
+                }
             })
-        .catch(e => {
-            if (e.status === 401) {
-                return this.http.post(this.BASE_URL + 'refresh', this.getRefreshHeaders)
-                .map(
-                    ((response: Response) => {
-                       this.getExpectedDepreciation(date, local, foreign, maturity);
-                    })
-                );
-        }});
+        );
     }
 
     getExpectationProgress(progressUri) {
         this.isLoading = true;
         return this.http.get(progressUri, this.getHeaders())
-        .map(
-            (response: Response) => {
-                // this.isLoading = false;
-                const data = response.json();
-                this.progressUpdated.next(data);
-                return data;
-            })
-        .catch(e => {
-            if (e.status === 401) {
-                return this.http.post(this.BASE_URL + 'refresh', this.getRefreshHeaders)
-                .map(
-                    ((response: Response) => {
-                       this.getExpectationProgress(progressUri);
-                    })
-                );
-        }});
+            .map(
+                (response: Response) => {
+                    // this.isLoading = false;
+                    const data = response.json();
+                    this.progressUpdated.next(data);
+                    return data;
+                })
+            .catch(e => {
+                if (e.status === 401) {
+                    return this.http.post(this.BASE_URL + 'refresh', this.getRefreshHeaders)
+                        .map(
+                            ((response: Response) => {
+                                this.getExpectationProgress(progressUri);
+                            })
+                        );
+                }
+            });
     }
 
     computePremium(pricingDate: string, domesticCurrency: string, foreignCurrency: string, domesticInterestRate: number,
         foreignInterestRate: number,
-         maturity: number, forexRate: number, depreciation: number) {
+        maturity: number, forexRate: number, depreciation: number) {
         this.isLoading = true;
-        return this.http.post(this.BASE_URL + 'premium',  {
-            'pricing_date' : pricingDate,
-            'domestic_currency' : domesticCurrency,
-            'foreign_currency' : foreignCurrency,
+        return this.http.post(this.BASE_URL + 'premium', {
+            'pricing_date': pricingDate,
+            'domestic_currency': domesticCurrency,
+            'foreign_currency': foreignCurrency,
             'domestic_interest_rate': domesticInterestRate,
             'foreign_interest_rate': foreignInterestRate,
-            'maturity' : maturity,
-            'forex_rate' : forexRate, 'expected_depreciation' : depreciation
+            'maturity': maturity,
+            'forex_rate': forexRate, 'expected_depreciation': depreciation
 
         }, this.getHeaders())
-        .subscribe(
-            (response: Response) => {
-                if (response['ok']) {
+            .subscribe(
+                (response: Response) => {
+                    if (response['ok']) {
+                        this.isLoading = false;
+                        const premium = response.json();
+                        this.premiumComputed.next(premium);
+                    }
+                },
+                (error: Error) => {
                     this.isLoading = false;
-                    const premium  = response.json();
-                    this.premiumComputed.next(premium);
                 }
-            },
-            (error: Error) => {
-                this.isLoading = false;
-            }
             );
     }
 

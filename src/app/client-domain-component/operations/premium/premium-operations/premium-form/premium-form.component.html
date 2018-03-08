@@ -77,21 +77,20 @@
 
       <div class="col-xs-3 col-sm-3" id="maturity-time">
         <div id="maturity-time-row-1">
-          <input [ngClass]="{'input-btn-click': customInputBtn.maturityTime.thirty }" (click)="onMaturityTimeSelected($event)" type=""
+          <input [readonly]="true" [ngClass]="{'input-btn-click': customInputBtn.maturityTime.thirty }" (click)="onMaturityTimeSelected($event)" type=""
             name="" class="input-btn-maturity" value="30" />
-          <input [ngClass]="{'input-btn-click': customInputBtn.maturityTime.sixty }" (click)="onMaturityTimeSelected($event)" type=""
+          <input  [readonly]="true" [ngClass]="{'input-btn-click': customInputBtn.maturityTime.sixty }" (click)="onMaturityTimeSelected($event)" type=""
             name="" class="input-btn-maturity" value="60" />
-          <input [ngClass]="{'input-btn-click': customInputBtn.maturityTime.oneHundredEighty }" (click)="onMaturityTimeSelected($event)"
+          <input [readonly]="true" [ngClass]="{'input-btn-click': customInputBtn.maturityTime.oneHundredEighty }" (click)="onMaturityTimeSelected($event)"
             type="" name="" class="input-btn-maturity" value="180" />
         </div>
         <div id="maturity-time-row-2">
-          <input [ngClass]="{'input-btn-click': customInputBtn.maturityTime.ninety }" (click)="onMaturityTimeSelected($event)" type=""
+          <input [readonly]="true" [ngClass]="{'input-btn-click': customInputBtn.maturityTime.ninety }" (click)="onMaturityTimeSelected($event)" type=""
             name="" class="input-btn-maturity" value="90" />
-          <input [ngClass]="{'input-btn-click': customInputBtn.maturityTime.threeHundredSixty }" (click)="onMaturityTimeSelected($event)"
+          <input  [readonly]="true" [ngClass]="{'input-btn-click': customInputBtn.maturityTime.threeHundredSixty }" (click)="onMaturityTimeSelected($event)"
             type="" name="" class="input-btn-maturity" value="360" />
           <input [ngClass]="{'input-btn-click': customInputBtn.maturityTime.typeBtn }" (click)="onMaturityTimeSelected($event)" type=""
             name="" class="input-btn-maturity" value="type" />
-
         </div>
       </div>
 
@@ -101,9 +100,6 @@
         <mat-datepicker-toggle matSuffix [for]="maturityDatePicker"></mat-datepicker-toggle>
         <mat-datepicker touchUi="true" #maturityDatePicker></mat-datepicker>
       </mat-form-field>
-
-
-
     </div>
 
     <div class="row vert-align">
