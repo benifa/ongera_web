@@ -26,6 +26,8 @@
    width: 100%; 
    margin-bottom: 10px;
    background-color: #fee5d3;
+   display: inline-flex;
+   text-align: center;
 }
 
 .mat-button, .mat-fab, .mat-icon-button, .mat-mini-fab, .mat-raised-button {

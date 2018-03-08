@@ -17,24 +17,12 @@
     color: white;
 }
 
-.currency-name{
-    
-    background-color: #222B3A;
-    color: #EC7A40;
-    border: 1.5px;
-    border-radius: 5px; 
-    font-size: 1em;
-    font-style: italic;
+.currency-name{    
+    outline: 0; 
+    height: 45px;
     width: 30%;
-    font-weight: bolder;
-    text-align: center;
-    padding:8px;
-    outline: 0;
-    height: 35px;
     margin-right: 10px;
-    margin-left: 10px;
-    border: 1.5px solid #0a66ad;
-    
+    margin-left: 10px;    
 }
 
   .currency-picker-button{
@@ -57,8 +45,6 @@
       padding-left: 0px;
       flex-direction: column;
       flex-flow: flex-direction;
-      
-      
   }
 
   .currency-btn{

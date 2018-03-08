@@ -1,9 +1,6 @@
 <div class="login-form">
   <div class="row form">
       <img src="../assets/logoongera.png" class="img-responsive center-block"  *ngIf="!authService.isAuthenticating()" alt="Responsive image">
-    <!-- <div class="col-xs-12 text-center">
-      <img src="../assets/logoongera.png" class="img-responsive" *ngIf="!authService.isAuthenticating()" alt="Responsive image">
-    </div> -->
   </div>
   <mat-card *ngIf="!authService.isAuthenticating()">
       <form (ngSubmit)="onSignup(f)" #f="ngForm">

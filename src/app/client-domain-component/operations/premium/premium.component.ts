@@ -1,15 +1,21 @@
 import { OperationStatus } from './../shared/operation-status.model';
 import { AuthService } from './../../auth/auth.service';
-import { Component, OnInit, ViewChild, HostListener, AfterViewInit } from '@angular/core';
+import { Component, OnInit, ViewChild, HostListener, AfterViewInit, HostBinding } from '@angular/core';
 import { MatSidenav } from '@angular/material';
+import { routeFadeStateTrigger, routeSlideStateTrigger } from './../../../shared/route-animations';
 
 @Component({
   selector: 'app-premium',
   templateUrl: './premium.component.html',
-  styleUrls: ['./premium.component.css']
+  styleUrls: ['./premium.component.css'],
+  animations: [
+    routeFadeStateTrigger,
+    routeSlideStateTrigger
+  ]
 })
 export class PremiumComponent implements OnInit, AfterViewInit {
   @ViewChild('sidenav') sidenav: MatSidenav;
+  // @HostBinding('@routeSlideState') routeAnimation = true;
   operationProgress = 0;
   public drawerMode = 'side';
 
@@ -57,6 +63,7 @@ export class PremiumComponent implements OnInit, AfterViewInit {
     if (window.innerWidth < 768) {
       this.sidenav.close();
     }else {
+      this.drawerMode = 'side';
       this.sidenav.open();
     }
   }

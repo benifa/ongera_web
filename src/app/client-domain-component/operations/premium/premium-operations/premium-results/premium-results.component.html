@@ -37,11 +37,11 @@
         </div>
 
         <div class="col-xs-3">
-            <input type="" name="" class="input-btn-generic" />
+            <input [ngModel]="max_percentage" type="" name="" class="input-btn-generic" />
         </div>
 
         <div class="col-xs-3 col-xs-offset-2">
-            <input type="" name="" class="input-btn-generic" />
+            <input [ngModel]="min_percentage" type="" name="" class="input-btn-generic" />
         </div>
     </div>
 
@@ -54,17 +54,17 @@
     <div class="row vert-align">
 
         <div class=" actions col-xs-6 col-md-3">
-            <button class="ongera-button actions" color="primary" mat-button> Print </button>
+            <button  [disabled]="!isValid()" class="ongera-button actions" color="primary" mat-button> Print </button>
 
         </div>
 
         <div class=" actions col-xs-6  col-md-4 col-md-offset-1 ">
-            <button class="ongera-button actions" color="primary" mat-button> Save as Model </button>
+            <button  [disabled]="!isValid()"class="ongera-button actions" color="primary" mat-button> Save as Model </button>
 
         </div>
 
         <div class="actions col-xs-12  col-md-4">
-            <button class="ongera-button actions" color="primary" mat-button> Plot associated graphics </button>
+            <button [disabled]="!isValid()" class="ongera-button actions" color="primary" mat-button> Plot associated graphics </button>
         </div>
     </div>
 

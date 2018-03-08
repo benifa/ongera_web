@@ -40,8 +40,8 @@ export class PremiumFormComponent implements OnInit {
   ngOnInit() {
     this.currencies = this.CURRENCIES;
     this.customInputBtn = this.CUSTOMINPUTBTN;
-    this.currencyA = this.CURRENCIES[1];
-    this.currencyB = this.CURRENCIES[3];
+    this.currencyA = this.CURRENCIES[2];
+    this.currencyB = this.CURRENCIES[0];
     this.displayCurrencySelectorB = false;
     this.displayCurrencySelectorA = false;
 
@@ -117,38 +117,37 @@ inputBtnclicked(btnName) {
       //   break;
       // }
 
-      case "forexRate": {
+      case 'forexRate': {
         this.customInputBtn.forexRate = true;
         break;
       }
-     
-      case "pricingDate": {
+      case 'pricingDate': {
         this.customInputBtn.pricingDate = true;
         break;
       }
 
-      case "maturityTime30": {
+      case 'maturityTime30': {
         this.customInputBtn.maturityTime.thirty = true;
         break;
       }
-      case "maturityTime60": {
+      case 'maturityTime60': {
         this.customInputBtn.maturityTime.sixty = true;
         break;
       }
-      case "maturityTime180": {
+      case 'maturityTime180': {
         this.customInputBtn.maturityTime.oneHundredEighty = true;
         break;
       }
-      case "maturityTime90": {
+      case 'maturityTime90': {
         this.customInputBtn.maturityTime.ninety = true;
         break;
       }
 
-      case "maturityTime360": {
+      case 'maturityTime360': {
         this.customInputBtn.maturityTime.threeHundredSixty = true;
         break;
       }
-      case "maturityTimeType": {
+      case 'maturityTimeType': {
         this.customInputBtn.maturityTime.typeBtn = true;
         break;
       }
@@ -278,7 +277,7 @@ if (status.current == 100) {
 } else if (status.state == 'FAILURE') {
   this.authService.isLoading = false;
 } else {
-  setTimeout(() => { this.getExpectationProgress(this.progressUri); }, 50);
+  setTimeout(() => { this.getExpectationProgress(this.progressUri); }, 1000);
 }
 
 }
@@ -347,6 +346,11 @@ computePremium() {
   this.authService.computePremium(moment(this.pricingdate).format('DD-MM-YYYY'),
   this.currencyA['symbol'], this.currencyB['symbol'], this.localInterestRate,
    this.foreignInterestRate,  this.maturityTime, this.forexRate, this.expectedDepreciation);
+}
+
+isValid() {
+  return this.currencyA &&  this.currencyB && this.maturityTime && this.pricingdate && this.localInterestRate &&
+   this.foreignInterestRate && this.maturityTime && this.forexRate && this.expectedDepreciation;
 }
 
 }

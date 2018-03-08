@@ -14,9 +14,7 @@ const operationRoutes: Routes = [
     imports: [
         RouterModule.forChild(operationRoutes)
     ],
-    providers:[ 
-   
-     ],
+
     exports: [RouterModule]
 })
 export class OperationRoutingModule {

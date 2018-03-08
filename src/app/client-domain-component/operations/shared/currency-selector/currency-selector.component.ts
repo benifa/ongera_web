@@ -8,7 +8,7 @@ import{ICurrency} from'./currency.model'
 })
 export class CurrencySelectorComponent implements OnInit {
 
-  @Input() currency:ICurrency;
+  @Input() currency: ICurrency;
   @Output() eventClick = new EventEmitter()
 
   constructor() { }

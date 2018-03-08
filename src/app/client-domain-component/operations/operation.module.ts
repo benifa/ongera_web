@@ -20,6 +20,7 @@ import { MatFormFieldModule } from '@angular/material';
 import { MatInputModule, MatButtonModule, MatCardModule, MatSidenavModule, MatMenuModule, MatToolbarModule,
      MatIconModule, MatProgressSpinnerModule } from '@angular/material';
 import { ActionComponent } from './premium/premium-actions/action/action.component';
+import { CurrencySwitchComponent } from './premium/currency-switch/currency-switch.component';
 
 
 
@@ -33,7 +34,8 @@ import { ActionComponent } from './premium/premium-actions/action/action.compone
         PremiumFormComponent,
         PremiumResultsComponent,
         CurrencySelectorComponent,
-        ActionComponent
+        ActionComponent,
+        CurrencySwitchComponent
     ],
     imports: [
         CommonModule,

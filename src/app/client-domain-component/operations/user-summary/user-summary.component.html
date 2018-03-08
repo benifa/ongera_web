@@ -1,44 +1,43 @@
 <!-- <mat-toolbar color="primary" class="fixed-header"> -->
 <div class="row summary">
   <div class="parent-column col-lg-12 col-md-12 col-sm-12 col-xs-12">
-    <div class="last-login col-md-4 hidden-sm hidden-xs">
+    <div [@FadeState]="state" class="last-login col-md-4 hidden-sm hidden-xs">
       <p class="text-danger" name="date">{{today.toDateString() | date :'fullDate'}}</p>
-      <p name="time" style="font-weight:bold">@{{today.getTime() | date: 'shortTime'}}</p>
+      <p *ngIf="time$ | async as date" name="time" style="font-weight:bold">@{{time$ | async | date: 'shortTime'}}</p>
     </div>
 
     <div class="col-md-3 col-sm-4 col-xs-4">
       <img src="../assets/logoongera.png" class="img-responsive center-block" alt="Responsive image">
     </div>
 
-    <div class="user-info col-md-4 col-sm-6 col-xs-7">
-
+    <div class="user-info col-md-4 col-sm-6 col-xs-6">
       <div class="col-md-12 col-sm-12 col-xs-12">
         <p class="text-danger">Welcome back</p>
-        <p style="text-overflow: ellipsis; font-weight:bold">{{currentUser.firstname}} {{currentUser.lastname}}</p>
-        <p>
-          <p class="text-danger">Last Logged In</p>
-          <p style="font-weight:bold">{{currentUser.time_since_last_login}}</p>
+        <p style="text-overflow: ellipsis; font-weight:bold;  white-space: nowrap;
+        overflow: hidden; ">{{currentUser.firstname}} {{currentUser.lastname}}</p>
+        <p class="text-danger">Last Logged In</p>
+        <p style="font-weight:bold">{{currentUser.time_since_last_login}}</p>
       </div>
     </div>
     <div class="col-xs-1 offset-md-1">
-        <img style="margin-top:20px" mat-card-avatar [matMenuTriggerFor]="menu" src="https://source.unsplash.com/random/300x300" aria-label="Dachshund avatar">
-        <mat-menu style="padding : 0px;" #menu="matMenu">
-          <div style="background-color:rgb(233, 240, 240); margin : 0px; padding-left:10px">
-              <img mat-card-avatar  src="https://source.unsplash.com/random/300x300" aria-label="Dachshund avatar"> 
-              <p style="text-overflow: ellipsis; font-weight:bold">{{currentUser.firstname}}</p>
-          </div>
+      <img style="margin-top:20px" mat-card-avatar [matMenuTriggerFor]="menu" src="https://source.unsplash.com/random/300x300"
+        aria-label="Dachshund avatar">
+      <mat-menu style="padding : 0px;" #menu="matMenu">
+        <div style="background-color:rgb(233, 240, 240); margin : 0px; padding-left:10px">
+          <img mat-card-avatar src="https://source.unsplash.com/random/300x300" aria-label="Dachshund avatar">
+          <p style="text-overflow: ellipsis; font-weight:bold">{{currentUser.firstname}}</p>
+        </div>
 
-          <button (click)="logout()" mat-menu-item>
-            <mat-icon> exit_to_app </mat-icon>
-            <span> Logout </span>
-          </button>
-          <button mat-menu-item disabled>
-            <mat-icon> settings_applications </mat-icon>
-            <span> Settings</span>
-          </button>
-          
-        </mat-menu>
-      </div>
+        <button (click)="logout()" mat-menu-item>
+          <mat-icon> exit_to_app </mat-icon>
+          <span> Logout </span>
+        </button>
+        <button mat-menu-item disabled>
+          <mat-icon> settings_applications </mat-icon>
+          <span> Settings</span>
+        </button>
+
+      </mat-menu>
+    </div>
   </div>
 </div>
-<!-- </mat-toolbar> -->

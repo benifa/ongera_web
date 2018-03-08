@@ -14,6 +14,6 @@
     </div>
   </div>
   <div *ngIf="authService.isLoading" class="loading-indicator" layout="row" layout-sm="column" layout-align="space-around">
-    <mat-progress-spinner color="warn" mode="determinate" value="{{operationProgress}}"></mat-progress-spinner>
+    <mat-progress-spinner color="warn" mode="determinate" value="{{operationProgress}}"  aria-label="progress" ></mat-progress-spinner>
   </div>
 </mat-sidenav-container>

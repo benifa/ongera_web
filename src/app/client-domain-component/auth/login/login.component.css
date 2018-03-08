@@ -4,3 +4,21 @@
     justify-content: center;
     height: 100%;
     }
+
+    .outer {
+        display: table;
+        position: absolute;
+        height: 100%;
+        width: 100%;
+    }
+    
+    .middle {
+        display: table-cell;
+        vertical-align: middle;
+    }
+    
+
+    
+/* :host {
+    display: block;
+} */
