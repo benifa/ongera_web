@@ -79,13 +79,12 @@ export class AuthService {
             this.http.delete(this.BASE_URL + 'logout', this.getHeaders())
                 .subscribe(
                     (response: Response) => {
-                        if (response['ok']) {
-                            this.isLoading = false;
-                            this.router.navigate([this.clientId + '/login']);
-                        }
+                        this.isLoading = false;
+                        this.router.navigate([this.clientId + '/login']);
                     },
                     (error: Error) => {
                         this.isLoading = false;
+                        this.router.navigate([this.clientId + '/login']);
                     }
                 );
             this.token = null;
