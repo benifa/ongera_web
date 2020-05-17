@@ -1,0 +1,41 @@
+.home-intro-section {
+  background: url('../../../assets/images/app_banner.png') no-repeat center center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  padding: 180px 0;
+  color: #ffffff;
+  overflow: hidden
+}
+
+#header h1,
+#header p,
+.cd-stretchy-nav.nav-is-visible ul a.active,
+.default_color,
+.default_color i,
+.default_color:hover i,
+.no-touch .cd-stretchy-nav.nav-is-visible ul a:hover {
+  color: #fff
+}
+
+#header {
+  background: 0 0;
+  display: flex;
+  align-items: center
+}
+
+ h1 {
+  font-size: 100px;
+  font-weight: 300
+}
+
+ p {
+  font-size: 45px;
+  line-height: 1.1;
+  font-weight: 100
+}
+
+ .demo-btn {
+   margin-top: 30px;
+ }

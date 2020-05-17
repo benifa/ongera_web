@@ -1,0 +1,37 @@
+<section id="portfolio-section" class="portfolio-section home-section text-center" [ngClass]="{'light-gray': backgroundGray}">
+  <div class="container">
+    <div class="row">
+      <h2 class="mb40"> Want to <span class="bolder">see</span> more?</h2>
+      <p class="mb40 col-md-10 col-md-offset-1">Please check on our awesome screenshots here.
+        Made from our devices and by our teams of developers for you with love</p>
+    </div>
+    <ngu-carousel
+      [inputs]="carouselOptions">
+      <ngu-item NguCarouselItem *ngFor="let p of portfolios">
+        <mat-card class="p-0">
+          <img mat-card-image [src]="p.photo">
+          <mat-card-content>
+            <h5><strong><a href="">{{p.title}}</a></strong></h5>
+            <p>
+              {{p.text}}
+            </p>
+            <mat-divider class="mb-1"></mat-divider>
+            <button mat-icon-button>
+              <mat-icon class="text-muted">link</mat-icon>
+            </button>
+            <button mat-icon-button>
+              <mat-icon class="text-muted">share</mat-icon>
+            </button>
+          </mat-card-content>
+        </mat-card>
+      </ngu-item>
+
+      <button mat-fab NguCarouselPrev class='carousel-left'>
+        <mat-icon>keyboard_arrow_left</mat-icon>
+      </button>
+      <button mat-fab NguCarouselNext class='carousel-right'>
+        <mat-icon>keyboard_arrow_right</mat-icon>
+      </button>
+    </ngu-carousel>
+  </div>
+</section>
