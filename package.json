@@ -25,7 +25,7 @@
     "@angular/platform-server": "^5.0.1",
     "@angular/router": "^5.0.1",
     "angular2-moment": "^1.7.0",
-    "bootstrap": "^3.3.7",
+    "bootstrap": "^3.4.1",
     "core-js": "^2.5.1",
     "material-ui": "^0.20.0",
     "moment": "^2.19.3",
